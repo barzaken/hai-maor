@@ -27,7 +27,7 @@ export function MobileNav() {
 				)}
 			</Button>
 			{open && (
-				<Portal className="top-14" id="mobile-menu">
+				<Portal className="top-14" dir="rtl" id="mobile-menu">
 					<PortalBackdrop />
 					<div
 						className={cn(
@@ -36,13 +36,8 @@ export function MobileNav() {
 						)}
 						data-slot={open ? "open" : "closed"}
 					>
-						<a
-							className="mb-6 inline-flex rounded-md p-2 hover:bg-muted dark:hover:bg-muted/50"
-							href="#home"
-							onClick={() => setOpen(false)}
-						>
-							<Logo className="h-16 w-auto" />
-						</a>
+						<div className="mb-6 flex justify-center">
+						</div>
 						<div className="grid gap-y-2">
 							{navLinks.map((link) => (
 								<Button
