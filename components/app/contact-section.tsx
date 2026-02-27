@@ -8,6 +8,7 @@ import Container from '@/components/ui/container';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { InlineEmphasis } from '@/components/ui/inline-emphasis';
 
 type SubmitState = {
   error: string | null;
@@ -61,7 +62,8 @@ export function ContactSection() {
   }
 
   return (
-    <section id="contact" dir="rtl" className="relative overflow-hidden py-12 md:py-16">
+    <section id="contact" dir="rtl" className="relative overflow-hidden py-12 md:py-16 scroll-mt-24">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(14,165,233,0.13),transparent_36%),radial-gradient(circle_at_85%_85%,rgba(249,115,22,0.14),transparent_38%)]" />
       <Container className="grid gap-10 md:grid-cols-[1fr_1.1fr]">
         <motion.div
           initial={{ opacity: 0, y: 18 }}
@@ -73,7 +75,7 @@ export function ContactSection() {
           <p className="mb-2 text-sm font-medium text-muted-foreground">יצירת קשר</p>
           <h3 className="text-2xl font-semibold tracking-tight md:text-3xl">בואו נדבר על התהליך שמתאים לכם</h3>
           <p className="mt-4 text-sm leading-7 text-muted-foreground md:text-base">
-            מלאו כמה פרטים ונחזור אליכם לשיחת היכרות קצרה. יחד נזהה צורך, נגדיר מטרה ונבנה תהליך עבודה
+            מלאו כמה פרטים ואחזור אליכם ל<InlineEmphasis tone="amber" variant="underline">שיחת היכרות קצרה</InlineEmphasis>. יחד נזהה צורך, נגדיר מטרה ואבנה תהליך עבודה
             פרקטי שמותאם לכם.
           </p>
           <a
@@ -123,9 +125,9 @@ export function ContactSection() {
             {submitState.error ? (
               <p className="text-sm text-destructive-foreground">{submitState.error}</p>
             ) : submitState.ok ? (
-              <p className="text-sm text-emerald-700 dark:text-emerald-400">מעולה. קיבלנו את הפנייה ונחזור בהקדם.</p>
+              <p className="text-sm text-emerald-700 dark:text-emerald-400">מעולה. קיבלתי את הפנייה ואחזור בהקדם.</p>
             ) : (
-              <p className="text-sm text-muted-foreground">התשובה מגיעה ישירות אלינו דרך הטופס.</p>
+              <p className="text-sm text-muted-foreground">הפנייה מגיעה ישירות אליי דרך הטופס.</p>
             )}
 
             <Button type="submit" disabled={submitState.pending}>

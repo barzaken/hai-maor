@@ -7,16 +7,20 @@ import { MobileNav } from "@/components/app/mobile-nav";
 
 export const navLinks = [
 	{
-		label: "Features",
-		href: "#",
+		label: "עליי",
+		href: "#about",
 	},
 	{
-		label: "Pricing",
-		href: "#",
+		label: "תהליך העבודה",
+		href: "#story",
 	},
 	{
-		label: "About",
-		href: "#",
+		label: "וידאו ותוכן",
+		href: "#media",
+	},
+	{
+		label: "יצירת קשר",
+		href: "#contact",
 	},
 ];
 
@@ -25,6 +29,7 @@ export function Header() {
 
 	return (
 		<header
+			dir="rtl"
 			className={cn(
 				"sticky top-0 z-50 mx-auto w-full max-w-4xl border-transparent border-b md:rounded-md md:border md:transition-all md:ease-out",
 				{
@@ -35,18 +40,18 @@ export function Header() {
 		>
 			<nav
 				className={cn(
-					"flex h-14 w-full items-center justify-between px-4 md:h-18 md:transition-all md:ease-out",
+					"flex h-20 w-full items-center justify-between px-4 md:h-24 md:transition-all md:ease-out",
 					{
 						"md:px-2": scrolled,
 					}
 				)}
 			>
-				<a
-					className="rounded-md p-2 hover:bg-muted dark:hover:bg-muted/50"
-					href="#"
-				>
-					<Logo className="h-4" />
-				</a>
+				{/* <a
+					className="rounded-md p-1 hover:bg-muted dark:hover:bg-muted/50"
+					href="#home"
+				> */}
+					<Logo className="h-14 w-auto md:h-32" />
+				{/* </a> */}
 				<div className="hidden items-center gap-2 md:flex">
 					<div>
 						{navLinks.map((link) => (
@@ -55,10 +60,10 @@ export function Header() {
 							</Button>
 						))}
 					</div>
-					<Button size="sm" variant="outline">
-						Sign In
+					<Button render={<a href="#story"></a>} size="sm" variant="outline">
+						שיחת היכרות
 					</Button>
-					<Button size="sm">Get Started</Button>
+					<Button render={<a href="#contact"></a>} size="sm">יצירת קשר</Button>
 				</div>
 				<MobileNav />
 			</nav>

@@ -9,10 +9,11 @@ import { FocusSkillsSection } from "@/components/app/focus-skills-section";
 import { SessionsSection } from "@/components/app/sessions-section";
 import { OutcomesSection } from "@/components/app/outcomes-section";
 import { MediaShowcaseSection } from "@/components/app/media-showcase-section";
+import { LiveOnStageSection } from "@/components/app/live-on-stage-section";
 import { ContactSection } from "@/components/app/contact-section";
+import { SpotlightCtaSection } from "@/components/app/spotlight-cta-section";
 import { FooterSection } from "@/components/app/footer-section";
 import { FullWidthDivider } from "@/components/ui/full-width-divider";
-import ThreeDMarqueeDemo from "@/components/3d-marquee-demo";
 
 export default function Home() {
   return (
@@ -20,7 +21,7 @@ export default function Home() {
       <Header />
       <main
         className={cn(
-          "relative mx-auto max-w-4xl grow",
+          "relative mx-auto max-w-6xl grow",
           "before:absolute before:-inset-y-14 before:-left-px before:w-px before:bg-border",
           "after:absolute after:-inset-y-14 after:-right-px after:w-px after:bg-border"
         )}
@@ -41,10 +42,16 @@ export default function Home() {
         <MediaShowcaseSection />
 		<FullWidthDivider />
 
+        <LiveOnStageSection />
+		<FullWidthDivider />
+
         <SessionsSection />
 		<FullWidthDivider />
 
         <OutcomesSection />
+		<FullWidthDivider />
+
+        <SpotlightCtaSection />
 		<FullWidthDivider />
 
         <ContactSection />

@@ -3,13 +3,14 @@ import React from "react";
 import { Portal, PortalBackdrop } from "@/components/ui/portal";
 import { Button } from "@/components/ui/button";
 import { navLinks } from "@/components/app/header";
+import { Logo } from "@/components/app/logo";
 import { XIcon, MenuIcon } from "lucide-react";
 
 export function MobileNav() {
 	const [open, setOpen] = React.useState(false);
 
 	return (
-		<div className="md:hidden">
+		<div className="md:hidden" dir="rtl">
 			<Button
 				aria-controls="mobile-menu"
 				aria-expanded={open}
@@ -35,12 +36,20 @@ export function MobileNav() {
 						)}
 						data-slot={open ? "open" : "closed"}
 					>
+						<a
+							className="mb-6 inline-flex rounded-md p-2 hover:bg-muted dark:hover:bg-muted/50"
+							href="#home"
+							onClick={() => setOpen(false)}
+						>
+							<Logo className="h-16 w-auto" />
+						</a>
 						<div className="grid gap-y-2">
 							{navLinks.map((link) => (
 								<Button
 									render={<a href={link.href}></a>}
 									className="justify-start"
 									key={link.label}
+									onClick={() => setOpen(false)}
 									variant="ghost"
 								>
 									{link.label}
@@ -48,10 +57,12 @@ export function MobileNav() {
 							))}
 						</div>
 						<div className="mt-12 flex flex-col gap-2">
-							<Button className="w-full" variant="outline">
-								Sign In
+							<Button render={<a href="#story"></a>} className="w-full" onClick={() => setOpen(false)} variant="outline">
+								שיחת היכרות
 							</Button>
-							<Button className="w-full">Get Started</Button>
+							<Button render={<a href="#contact"></a>} className="w-full" onClick={() => setOpen(false)}>
+								יצירת קשר
+							</Button>
 						</div>
 					</div>
 				</Portal>

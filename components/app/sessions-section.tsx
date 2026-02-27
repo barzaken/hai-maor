@@ -4,6 +4,7 @@ import { motion } from 'motion/react';
 import { cn } from '@/lib/utils';
 import { AnimatedGridPattern } from '../ui/animated-grid-pattern';
 import Container from '../ui/container';
+import { InlineEmphasis } from '../ui/inline-emphasis';
 
 const meetingItems = [
   'ניתוח מסרים וטקסטים',
@@ -25,13 +26,13 @@ const tracks = [
 
 const workshopItems = [
   'סדנה חד-יומית ממוקדת (4 שעות) לעמידה מול קהל ומצלמה',
-  'הנחיה משותפת של עידן יעקובס וחי מאור',
+  'אני מנחה יחד עם עידן יעקובס',
   'מודל עבודה פרקטי המשלב תרגול, משוב ויישום מיידי',
 ];
 
 export function SessionsSection() {
   return (
-    <section dir="rtl" className="relative overflow-hidden py-12 md:py-16">
+    <section id="services" dir="rtl" className="relative overflow-hidden py-12 md:py-16 scroll-mt-24">
       <AnimatedGridPattern
         numSquares={40}
         maxOpacity={0.2}
@@ -39,6 +40,7 @@ export function SessionsSection() {
         repeatDelay={1}
         className={cn('[mask-image:radial-gradient(420px_circle_at_center,white,transparent)]')}
       />
+      <div className="pointer-events-none absolute inset-0 bg-background/10 backdrop-blur-[2px]" />
 
       <Container className="relative grid gap-8 md:grid-cols-[1.2fr_1fr]">
         <motion.div
@@ -46,9 +48,9 @@ export function SessionsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.35 }}
           transition={{ duration: 0.55, ease: 'easeOut' }}
-          className="py-1"
+          className="rounded-2xl bg-background/65 p-4 py-5 backdrop-blur-sm md:p-5"
         >
-          <h3 className="text-2xl font-semibold tracking-tight md:text-3xl">מה כולל כל מפגש</h3>
+          <h3 className="text-2xl font-semibold tracking-tight md:text-3xl">מה כולל כל <InlineEmphasis tone="blue" variant="underline">מפגש</InlineEmphasis></h3>
           <div className="mt-6 space-y-2">
             {meetingItems.map((item, index) => (
               <motion.p
@@ -70,7 +72,7 @@ export function SessionsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.35 }}
           transition={{ duration: 0.55, delay: 0.08, ease: 'easeOut' }}
-          className="py-1"
+          className="rounded-2xl bg-background/65 p-4 py-5 backdrop-blur-sm md:p-5"
         >
           <p className="text-sm font-medium text-muted-foreground">מסלולי עבודה</p>
           <div className="mt-4 space-y-4">
@@ -86,7 +88,7 @@ export function SessionsSection() {
             ))}
           </div>
           <p className="mt-4 text-sm leading-7 text-muted-foreground">
-            כל מפגש כולל ליווי אישי ותיעוד וידאו לצפייה חוזרת ולהטמעה מהירה בשטח.
+            כל מפגש כולל <InlineEmphasis tone="green" variant="highlight">ליווי אישי ותיעוד וידאו</InlineEmphasis> לצפייה חוזרת ולהטמעה מהירה בשטח.
           </p>
         </motion.div>
       </Container>
@@ -97,7 +99,7 @@ export function SessionsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.5, ease: 'easeOut' }}
-          className="py-1"
+          className="rounded-2xl bg-background/65 p-4 py-5 backdrop-blur-sm md:p-5"
         >
           <p className="text-sm font-medium text-muted-foreground">פורמט נוסף</p>
           <h3 className="mt-2 text-xl font-semibold tracking-tight md:text-2xl">סדנה מרוכזת לעמידה מול קהל ומצלמה</h3>

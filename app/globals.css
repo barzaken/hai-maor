@@ -102,6 +102,10 @@
   --warning-foreground: var(--color-amber-700);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .dark {
   --background: color-mix(in srgb, var(--color-neutral-950) 95%, var(--color-white));
   --foreground: var(--color-neutral-100);
@@ -168,4 +172,19 @@
   100% {
     transform: translateX(0);
   }
+}
+
+@keyframes spotlight {
+  0% {
+    opacity: 0;
+    transform: translate(-72%, -62%) scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -40%) scale(1);
+  }
+}
+
+.animate-spotlight {
+  animation: spotlight 2s ease 0.75s 1 forwards;
 }

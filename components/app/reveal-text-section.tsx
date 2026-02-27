@@ -129,7 +129,6 @@ export default function RevealTextSection() {
                     >
                         <h2 className="text-4xl lg:text-6xl leading-[1.1] font-bold tracking-tighter text-[#1a1a1a] dark:text-white">
 
-                            <span className="text-[#1a1a1a] dark:text-white">“</span>
 
                             {words.map((word, i) => {
                                 const duration = 1 - delay;
@@ -143,7 +142,6 @@ export default function RevealTextSection() {
                                 );
                             })}
 
-                            <span className="text-[#1a1a1a] dark:text-white ">”</span>
 
                         </h2>
 

@@ -1,9 +1,22 @@
 "use client";
 import { ThreeDMarquee } from "@/components/ui/3d-marquee";
 
-export default function ThreeDMarqueeDemo() {
+type ThreeDMarqueeDemoProps = {
+  className?: string;
+};
+
+export default function ThreeDMarqueeDemo({ className }: ThreeDMarqueeDemoProps) {
   const images = [
-    "https://assets.aceternity.com/cloudinary_bkp/3d-card.png",
+    "https://hai-maor.vercel.app/img/hai-plays/shot-01.jpeg",
+    "https://hai-maor.vercel.app/img/hai-plays/shot-02.jpeg",
+    "https://hai-maor.vercel.app/img/hai-plays/shot-03.jpeg",
+    "https://hai-maor.vercel.app/img/hai-plays/shot-04.jpeg",
+    "https://hai-maor.vercel.app/img/hai-plays/shot-05.jpeg",
+    "https://hai-maor.vercel.app/img/hai-plays/shot-06.jpeg",
+    "https://hai-maor.vercel.app/img/hai-plays/shot-07.jpeg",
+    "https://hai-maor.vercel.app/img/hai-plays/shot-08.jpeg",
+    "https://hai-maor.vercel.app/img/hai-plays/shot-09.jpeg",
+    "https://hai-maor.vercel.app/img/hai-plays/shot-10.jpeg",
     "https://assets.aceternity.com/animated-modal.png",
     "https://assets.aceternity.com/animated-testimonials.webp",
     "https://assets.aceternity.com/cloudinary_bkp/Tooltip_luwy44.png",
@@ -32,12 +45,10 @@ export default function ThreeDMarqueeDemo() {
     "https://assets.aceternity.com/cloudinary_bkp/Moving_Border_yn78lv.png",
     "https://assets.aceternity.com/multi-step-loader.png",
     "https://assets.aceternity.com/vortex.png",
-    "https://assets.aceternity.com/wobble-card.png",
-    "https://assets.aceternity.com/world-map.webp",
+    // "https://assets.aceternity.com/wobble-card.png",
+    // "https://assets.aceternity.com/world-map.webp",
   ];
   return (
-    <div className="mx-auto my-10 max-w-7xl ring1 ring-neutral-700/10 dark:bg-neutral-800">
-      <ThreeDMarquee images={images} />
-    </div>
+    <ThreeDMarquee images={images} className={className} />
   );
 }

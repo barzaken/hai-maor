@@ -1,10 +1,11 @@
 'use client';
 
 import { motion } from 'motion/react';
+import { CheckCheckIcon } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { DotPattern } from '../ui/dot-pattern';
-import { Highlighter } from '../ui/highlighter';
 import Container from '../ui/container';
+import { InlineEmphasis } from '../ui/inline-emphasis';
 
 const focusItems = [
   'ביטחון מול מצלמה וקהל כמיומנות נרכשת',
@@ -36,10 +37,10 @@ export function FocusSkillsSection() {
         >
           <p className="text-sm font-medium text-muted-foreground">מה שמחדדים בתהליך</p>
           <h3 className="mt-2 text-2xl font-semibold tracking-tight md:text-3xl">
-            יסודות ה<Highlighter action="underline" color="#fb7185">במה העסקית</Highlighter>
+            יסודות ה<InlineEmphasis tone="rose" variant="underline">במה העסקית</InlineEmphasis>
           </h3>
 
-          <div className="mt-6 grid gap-2 md:grid-cols-2">
+          <div className="mt-6 grid gap-3 md:grid-cols-2">
             {focusItems.map((item, index) => (
               <motion.div
                 key={item}
@@ -47,9 +48,10 @@ export function FocusSkillsSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.4 }}
                 transition={{ duration: 0.4, delay: index * 0.05, ease: 'easeOut' }}
-                className="border-b border-border/70 pb-2 text-sm leading-7 md:text-base"
+                className="flex items-start gap-3 p-3 text-sm leading-7 backdrop-blur-sm md:text-base"
               >
-                {item}
+                <CheckCheckIcon className="mt-1 size-4 shrink-0 text-emerald-600 dark:text-emerald-400" />
+                <span>{item}</span>
               </motion.div>
             ))}
           </div>

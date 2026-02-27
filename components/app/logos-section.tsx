@@ -1,6 +1,7 @@
 import { FullWidthDivider } from "@/components/ui/full-width-divider";
 import { cn } from "@/lib/utils";
 import { DecorIcon } from "@/components/ui/decor-icon";
+import { InlineEmphasis } from "@/components/ui/inline-emphasis";
 
 type Logo = {
 	src: string;
@@ -112,9 +113,9 @@ function LogoCard({ logo, className, children, ...props }: LogoCardProps) {
 
 export function LogosSection() {
 	return (
-		<section className="mb-12">
+		<section className="mb-12 border-t">
 			<h2 className="py-6 text-center font-medium text-lg text-muted-foreground tracking-tight md:text-xl">
-				לקוחות שכבר <span className="text-foreground">לא מפחדים</span>
+				לקוחות שבחרו בי
 			</h2>
 			<div className="relative *:border-0">
 				<DecorIcon className="size-4" position="top-left" />
