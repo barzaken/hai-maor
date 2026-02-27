@@ -16,20 +16,22 @@ export const ThreeDMarquee = ({
     const start = colIndex * chunkSize;
     return images.slice(start, start + chunkSize);
   });
+
   return (
     <div
       className={cn(
-        'relative block h-[420px] w-full overflow-hidden sm:h-[520px] md:h-[600px]',
+        'relative mx-auto block h-[430px] w-full max-w-full overflow-hidden rounded2xl sm:h-[520px] md:h-[600px]',
         className
       )}
     >
-      <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
-        <div className="size-[1720px] shrink-0 scale-[0.42] sm:scale-[0.6] md:scale-75 lg:scale-100">
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="flex size-full items-center justify-center overflow-hidden">
+          <div className="size-[1720px] shrink-0 scale-[0.42] sm:scale-[0.6] md:scale-75 lg:scale-100">
           <div
             style={{
               transform: 'rotateX(55deg) rotateY(0deg) rotateZ(-45deg)',
             }}
-            className="relative top-96 right-1/2 grid size-full origin-top-left grid-cols-4 gap-8 transform-3d"
+            className="relative top-56 right-[50%] grid size-full origin-top-left grid-cols-4 gap-8 transform-3d sm:top-72 md:top-96"
           >
             {chunks.map((subarray, colIndex) => (
               <motion.div
@@ -66,6 +68,7 @@ export const ThreeDMarquee = ({
               </motion.div>
             ))}
           </div>
+        </div>
         </div>
       </div>
     </div>

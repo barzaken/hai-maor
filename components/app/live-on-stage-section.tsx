@@ -7,7 +7,7 @@ import ThreeDMarqueeDemo from '@/components/3d-marquee-demo';
 
 export function LiveOnStageSection() {
   return (
-    <section id="live-stage" dir="rtl" className="relative overflow-x-clip py-12 md:py-16">
+    <section id="live-stage" dir="rtl" className="relative overflow-hidden py-12 md:py-16">
       <Container className="py-1">
         <motion.div
           initial={{ opacity: 0, y: 18 }}
@@ -29,9 +29,10 @@ export function LiveOnStageSection() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.55, delay: 0.05, ease: 'easeOut' }}
-        className="mt-5"
+        className="mt-5 overflow-hidden"
+        dir="ltr"
       >
-        <ThreeDMarqueeDemo className="h-[430px] sm:h-[520px] md:h-[600px]" />
+        <ThreeDMarqueeDemo />
       </motion.div>
     </section>
   );

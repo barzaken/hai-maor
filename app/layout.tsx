@@ -49,10 +49,18 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+  manifest: "/manifest.json",
+  appleWebApp: {
+    title: "חי מאור - במה עסקית",
+  },
   icons: {
-    icon: "/hai-logo.png",
-    shortcut: "/hai-logo.png",
-    apple: "/hai-logo.png",
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/icon0.svg", type: "image/svg+xml" },
+      { url: "/icon1.png", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: "/apple-icon.png",
   },
 };
 
