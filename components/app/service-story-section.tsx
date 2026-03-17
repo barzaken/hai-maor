@@ -29,7 +29,7 @@ export function ServiceStorySection() {
           <h3 className="text-xl font-semibold tracking-tight md:text-2xl">יודעים מה להגיד, מתקשים לגרום לאנשים להקשיב</h3>
           <p className="mt-4 leading-8 text-muted-foreground">
             מנהלים ויזמים רבים מגיעים עם רעיון מצוין, מצגת טובה וטקסט מדויק - אבל בלי{' '}
-            <InlineEmphasis tone="blue" variant="highlight">חיבור רגשי</InlineEmphasis>
+            <InlineEmphasis tone="blue" variant="highlight">חיבור רגשי וכריזמה</InlineEmphasis>
             ,
             המסר לא מניע לפעולה. מצגות נשארות טכניות, סרטונים לא מייצרים תגובה, והופעה עסקית מרגישה
             נכונה אבל לא נוגעת.
@@ -44,7 +44,7 @@ export function ServiceStorySection() {
                 transition={{ duration: 0.35, delay: index * 0.06, ease: 'easeOut' }}
                 className=" p-3 text-sm leading-6 backdrop-blur-sm"
               >
-                <span className="inline-flex items-center gap-2 text-amber-700 dark:text-amber-400">
+                <span className="inline-flex items-center gap-2 text-amber-700 dark:text-[#f5f511]">
                   <SparklesIcon className="size-4" />
                   <p className="mt-2 text-muted-foreground">{item}</p>
                 </span>

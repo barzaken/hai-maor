@@ -36,13 +36,13 @@ export function AboutMeSection() {
           <p className="mb-3 text-sm font-medium tracking-tight text-muted-foreground">מי אני</p>
           <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">היי, אני חי מאור</h2>
           <p className="mt-4 text-base leading-8 text-muted-foreground md:text-lg">
-             שחקן תיאטרון, טלוויזיה וקולנוע כבר 20 שנה, וב-13 השנים האחרונות אני משחק בתיאטרון בית ליסין.
+            שחקן תיאטרון, טלוויזיה וקולנוע כבר 20 שנה, וב-15 השנים האחרונות אני משחק באופן קבוע בתיאטרון בית ליסין.
             השתתפתי והופעתי בין היתר בסדרות{' '}
             <InlineEmphasis tone="amber" variant="underline">
               &quot;קופה ראשית&quot;, &quot;השוטרים&quot;, &quot;מלכות&quot; ו&quot;חזרות&quot;
             </InlineEmphasis>
             .
-            מזה 15 שנה אני מאמן ומלווה שחקנים, מנהלים ויזמים לבניית <InlineEmphasis tone="blue" variant="highlight">נוכחות, ביטחון והשפעה</InlineEmphasis> -
+            מזה 15 שנה אני מאמן ומלווה שחקנים, מנהלים ויזמים לבניית <InlineEmphasis tone="blue" variant="highlight">נוכחות, ביטחון וכריזמה</InlineEmphasis> -
             על במה, מול מצלמה ובכל מפגש עסקי משמעותי, עם התמחות בעמידה מול קהל וניהול פחד במה.
           </p>
 
@@ -88,7 +88,7 @@ export function AboutMeSection() {
           </p>
           <div className="space-y-2 text-sm leading-7 text-muted-foreground md:text-base">
             <p>20 שנות משחק בתיאטרון, טלוויזיה וקולנוע</p>
-            <p>13 שנים בתיאטרון בית ליסין</p>
+            <p>15 שנים קבוע בתיאטרון בית ליסין</p>
             <p>סדרות: &quot;קופה ראשית&quot;, &quot;המדובב&quot;, &quot;השוטרים&quot; ועוד</p>
           </div>
         </motion.div>

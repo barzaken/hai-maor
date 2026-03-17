@@ -9,10 +9,10 @@ import { InlineEmphasis } from '../ui/inline-emphasis';
 
 const focusItems = [
   'ביטחון מול מצלמה וקהל כמיומנות נרכשת',
-  'איך לספר את הסיפור העסקי שלך בצורה משכנעת',
+  'איך לספר את הסיפור העסקי שלך עם מסר ברור וזכיר',
   'יצירת פוקוס וריכוז של הקהל לאורך כל ההופעה',
   'חידוד מסר ברור שנשאר בזיכרון',
-  'רתימת שפת הגוף, קול וקצב לטובת המסר',
+  'איך להשתמש בגוף, בקול ובקצב כסקילס שמקדמים את הסיפור העסקי',
   'אותנטיות, רגש ורושם ראשוני מדויק',
 ];
 
@@ -37,7 +37,7 @@ export function FocusSkillsSection() {
         >
           <p className="text-sm font-medium text-muted-foreground">מה שמחדדים בתהליך</p>
           <h3 className="mt-2 text-2xl font-semibold tracking-tight md:text-3xl">
-            יסודות ה<InlineEmphasis tone="rose" variant="underline">במה העסקית</InlineEmphasis>
+            יסודות ומיומנויות ל<InlineEmphasis tone="rose" variant="underline">הפרזנטציה ועמידה מול קהל ומצלמה</InlineEmphasis>
           </h3>
 
           <div className="mt-6 grid gap-3 md:grid-cols-2">
@@ -50,7 +50,7 @@ export function FocusSkillsSection() {
                 transition={{ duration: 0.4, delay: index * 0.05, ease: 'easeOut' }}
                 className="flex items-start gap-3 p-3 text-sm leading-7 backdrop-blur-sm md:text-base"
               >
-                <CheckCheckIcon className="mt-1 size-4 shrink-0 text-emerald-600 dark:text-emerald-400" />
+                <CheckCheckIcon className="mt-1 size-4 shrink-0 text-[#f5f511] dark:text-[#f5f511]" />
                 <span>{item}</span>
               </motion.div>
             ))}

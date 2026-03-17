@@ -4,11 +4,9 @@ import { FormEvent, useState } from 'react';
 import { motion } from 'motion/react';
 import { ArrowLeftIcon, LoaderCircleIcon, SendIcon } from 'lucide-react';
 
-import Container from '@/components/ui/container';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { InlineEmphasis } from '@/components/ui/inline-emphasis';
 
 type SubmitState = {
   error: string | null;
@@ -35,26 +33,23 @@ export function ContactSection() {
       email: String(formData.get('email') || '').trim(),
       phone: String(formData.get('phone') || '').trim(),
       message: String(formData.get('message') || '').trim(),
+      goal: String(formData.get('goal') || '').trim(),
     };
 
     try {
       const response = await fetch('/api/form', {
         body: JSON.stringify(payload),
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         method: 'POST',
       });
 
-      if (!response.ok) {
-        throw new Error('failed');
-      }
+      if (!response.ok) throw new Error('failed');
 
       event.currentTarget.reset();
       setSubmitState({ error: null, ok: true, pending: false });
     } catch {
       setSubmitState({
-        error: 'לא הצלחנו לשלוח את הטופס כרגע. אפשר לנסות שוב בעוד רגע.',
+        error: 'Connection failed. Please try again.',
         ok: false,
         pending: false,
       });
@@ -62,90 +57,118 @@ export function ContactSection() {
   }
 
   return (
-    <section id="contact" dir="rtl" className="relative overflow-hidden py-12 md:py-16 scroll-mt-24">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(14,165,233,0.13),transparent_36%),radial-gradient(circle_at_85%_85%,rgba(249,115,22,0.14),transparent_38%)]" />
-      <Container className="grid gap-10 md:grid-cols-[1fr_1.1fr]">
-        <motion.div
-          initial={{ opacity: 0, y: 18 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.35 }}
-          transition={{ duration: 0.55, ease: 'easeOut' }}
-          className="py-1"
-        >
-          <p className="mb-2 text-sm font-medium text-muted-foreground">יצירת קשר</p>
-          <h3 className="text-2xl font-semibold tracking-tight md:text-3xl">בואו נדבר על התהליך שמתאים לכם</h3>
-          <p className="mt-4 text-sm leading-7 text-muted-foreground md:text-base">
-            מלאו כמה פרטים ואחזור אליכם ל<InlineEmphasis tone="amber" variant="underline">שיחת היכרות קצרה</InlineEmphasis>. יחד נזהה צורך, נגדיר מטרה ואבנה תהליך עבודה
-            פרקטי שמותאם לכם.
-          </p>
-          <a
-            href="#"
-            className="mt-6 inline-flex items-center gap-2 text-sm font-medium underline underline-offset-4"
+    <section id="contact" dir="rtl" className="relative overflow-hidden py-16 md:py-24 scroll-mt-24">
+      {/* Decorative Blur Effect */}
+      <div className="absolute inset-0 pointer-events-none -z-10 bg-background" />
+      <div className="absolute top-1/2 right-1/4 w-[40rem] h-[40rem] bg-[#f5f511]/5 blur-[150px] rounded-full mix-blend-screen -z-10 pointer-events-none translate-y-[-50%]" />
+
+      <div className="container mx-auto px-4 max-w-5xl">
+        <div className="flex flex-col gap-12 items-center text-center">
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="flex flex-col items-center"
           >
-            לתיאום שיחה מהירה
-            <ArrowLeftIcon className="size-4" />
-          </a>
-        </motion.div>
+            <p className="mb-4 text-sm font-medium tracking-widest text-[#f5f511]">מוכנים לעלות לבמה?</p>
+            <h3 className="text-4xl md:text-5xl font-semibold tracking-tight text-foreground mb-6 leading-tight">
+              בואו נהפוך את הפרזנטציה הבאה שלכם לסיפור הצלחה.
+            </h3>
+            <p className="text-lg leading-relaxed text-gray-400 max-w-[45ch]">
+              מלאו כמה פרטים ואחזור אליכם לשיחת היכרות קצרה. יחד נזהה צורך, נגדיר מטרה ואבנה תהליך עבודה פרקטי שמותאם בדיוק לאתגר שלכם.
+            </p>
+          </motion.div>
 
-        <motion.form
-          initial={{ opacity: 0, y: 18 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.55, delay: 0.07, ease: 'easeOut' }}
-          onSubmit={handleSubmit}
-          className="space-y-4 rounded-2xl border bg-background/75 p-4 shadow-xs backdrop-blur-sm md:p-6"
-        >
-          <div className="grid gap-4 md:grid-cols-2">
-            <label className="space-y-2 text-sm text-muted-foreground">
-              שם מלא
-              <Input name="fullName" required placeholder="איך קוראים לך?" autoComplete="name" />
-            </label>
-            <label className="space-y-2 text-sm text-muted-foreground">
-              אימייל
-              <Input name="email" required type="email" placeholder="name@company.com" autoComplete="email" />
-            </label>
-          </div>
+          {/* Form Side */}
+          <motion.form
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            onSubmit={handleSubmit}
+            className="w-full relative p-8 md:p-12 rounded-[2.5rem] bg-white/[0.03] border border-white/5 shadow-2xl backdrop-blur-3xl overflow-hidden group text-start"
+          >
+            {/* Interactive Border Highlight (simulated) */}
+            <div className="absolute inset-0 bg-gradient-to-br from-[#f5f511]/10 to-transparent opacity-0 transition-opacity duration-700 group-hover:opacity-100 pointer-events-none" />
 
-          <label className="block space-y-2 text-sm text-muted-foreground">
-            טלפון
-            <Input name="phone" placeholder="לא חובה" autoComplete="tel" />
-          </label>
+            <div className="grid gap-6 md:grid-cols-2 relative z-10">
+              <label className="flex flex-col gap-2 relative">
+                <span className="text-sm font-medium text-gray-300">שם מלא</span>
+                <Input
+                  name="fullName"
+                  required
+                  placeholder="איך קוראים לך?"
+                  className="h-12 bg-black/20 border-white/10 focus-visible:ring-[#f5f511]/50 text-foreground rounded-xl transition-all"
+                />
+              </label>
+              <label className="flex flex-col gap-2 relative">
+                <span className="text-sm font-medium text-gray-300">חברה</span>
+                <Input
+                  name="company"
+                  placeholder="איפה את/ה עובד/ת?"
+                  className="h-12 bg-black/20 border-white/10 focus-visible:ring-[#f5f511]/50 text-foreground rounded-xl transition-all"
+                />
+              </label>
+            </div>
 
-          <label className="block space-y-2 text-sm text-muted-foreground">
-            מה תרצו לשפר?
-            <Textarea
-              name="message"
-              required
-              placeholder="ספרו בקצרה על האתגר שלכם או מה תרצו להשיג..."
-              rows={5}
-            />
-          </label>
+            <div className="grid gap-6 md:grid-cols-2 mt-6 relative z-10">
+              <label className="flex flex-col gap-2 relative">
+                <span className="text-sm font-medium text-gray-300">טלפון</span>
+                <Input
+                  name="phone"
+                  required
+                  placeholder="באיזה מספר אפשר לתפוס אותך?"
+                  className="h-12 bg-black/20 border-white/10 focus-visible:ring-[#f5f511]/50 text-foreground rounded-xl transition-all"
+                />
+              </label>
+              <label className="flex flex-col gap-2 relative">
+                <span className="text-sm font-medium text-gray-300">המטרה הקרובה</span>
+                <Input
+                  name="goal"
+                  placeholder="Pitch / כנס / חסם מסוים"
+                  className="h-12 bg-black/20 border-white/10 focus-visible:ring-[#f5f511]/50 text-foreground rounded-xl transition-all"
+                />
+              </label>
+            </div>
 
-          <div className="flex flex-col-reverse gap-3 pt-1 sm:flex-row sm:items-center sm:justify-between">
-            {submitState.error ? (
-              <p className="text-sm text-destructive-foreground">{submitState.error}</p>
-            ) : submitState.ok ? (
-              <p className="text-sm text-emerald-700 dark:text-emerald-400">מעולה. קיבלתי את הפנייה ואחזור בהקדם.</p>
-            ) : (
-              <p className="text-sm text-muted-foreground">הפנייה מגיעה ישירות אליי דרך הטופס.</p>
-            )}
+            <div className="mt-8 relative z-10">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+                <div className="text-sm">
+                  {submitState.error ? (
+                    <span className="text-red-400 font-medium">{submitState.error}</span>
+                  ) : submitState.ok ? (
+                    <span className="text-[#f5f511] font-medium tracking-wide">מעולה. קיבלתי את הפנייה ואחזור בהקדם.</span>
+                  ) : (
+                    <span className="text-gray-500">המידע נשמר בפרטיות מוחלטת.</span>
+                  )}
+                </div>
 
-            <Button type="submit" disabled={submitState.pending}>
-              {submitState.pending ? (
-                <>
-                  שולח
-                  <LoaderCircleIcon className="size-4 animate-spin" />
-                </>
-              ) : (
-                <>
-                  שליחה
-                  <SendIcon className="size-4" />
-                </>
-              )}
-            </Button>
-          </div>
-        </motion.form>
-      </Container>
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  disabled={submitState.pending}
+                  className="inline-flex h-12 items-center justify-center gap-2 whitespace-nowrap rounded-xl bg-[#f5f511] px-8 text-sm font-medium text-black shadow-lg shadow-[#f5f511]/25 transition-colors hover:bg-[#f5f511] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f5f511] disabled:pointer-events-none disabled:opacity-50"
+                  type="submit"
+                >
+                  {submitState.pending ? (
+                    <>
+                      מעבד נתונים
+                      <LoaderCircleIcon className="w-4 h-4 animate-spin" />
+                    </>
+                  ) : (
+                    <>
+                      לתיאום פגישה
+                      <ArrowLeftIcon className="w-4 h-4" />
+                    </>
+                  )}
+                </motion.button>
+              </div>
+            </div>
+          </motion.form>
+        </div>
+      </div>
     </section>
   );
 }

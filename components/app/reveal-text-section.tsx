@@ -85,7 +85,7 @@ export default function RevealTextSection() {
         offset: ["start end", "end end"],
     });
 
-    const quote = "קהל מול לרעוד צריך לא";
+    const quote = "לא צריך לרעוד מול קהל";
     // const quote = "Military-grade precision meets world-class engineering.";
     const words = quote.split(" ");
     const delay = 0.45;
