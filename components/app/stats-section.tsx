@@ -5,7 +5,7 @@ import { PlusIcon } from 'lucide-react';
 
 export function StatsSection() {
     return (
-        <section className='flex-1 min-w-full flex justify-center items-center gap-12 md:gap-[50px]'>
+        <section className='flex-1 min-w-full flex justify-center items-center gap-6 sm:gap-12 md:gap-[50px]'>
             <div className="flex flex-col gap-2 items-center">
                 <div className="flex  gap-2 items-end">
                     <NumberTicker
