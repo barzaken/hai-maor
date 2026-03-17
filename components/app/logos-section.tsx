@@ -105,6 +105,8 @@ function LogoCard({ logo, className, children, ...props }: LogoCardProps) {
 				height="auto"
 				src={logo.src}
 				width="auto"
+				loading="lazy"
+				decoding="async"
 			/>
 			{children}
 		</div>

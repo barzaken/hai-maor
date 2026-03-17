@@ -11,12 +11,26 @@ export function ExpandableCardDemo() {
   const [active, setActive] = useState<(typeof tvShows)[number] | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [isGlitching, setIsGlitching] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
   const id = useId();
   const ref = useRef<HTMLDivElement>(null!);
+  const sectionRef = useRef<HTMLElement>(null!);
 
-  // TV Auto-switching logic
+  // Only run animations when section is visible
   useEffect(() => {
-    if (active) return; // Pause auto-switch when a card is expanded
+    const el = sectionRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsVisible(entry.isIntersecting),
+      { threshold: 0.1 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  // TV Auto-switching logic - paused when off-screen
+  useEffect(() => {
+    if (active || !isVisible) return;
 
     const interval = setInterval(() => {
       setIsGlitching(true);
@@ -27,7 +41,7 @@ export function ExpandableCardDemo() {
     }, 4000);
 
     return () => clearInterval(interval);
-  }, [active]);
+  }, [active, isVisible]);
 
   useEffect(() => {
     function onKeyDown(event: KeyboardEvent) {
@@ -52,7 +66,7 @@ export function ExpandableCardDemo() {
   useOutsideClick(ref, () => setActive(null));
 
   return (
-    <section dir="rtl" className="relative w-full py-24 md:py-32 overflow-hidden bg-background">
+    <section ref={sectionRef} dir="rtl" className="relative w-full py-24 md:py-32 overflow-hidden bg-background">
       {/* Ambient Glow */}
       <div className="absolute top-1/2 left-0 w-[40rem] h-[40rem] bg-[#f5f511]/5 blur-[120px] rounded-full mix-blend-screen -z-10 pointer-events-none translate-y-[-50%] -translate-x-1/2" />
 

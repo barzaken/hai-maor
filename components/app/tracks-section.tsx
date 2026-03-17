@@ -91,7 +91,7 @@ export function TracksSection() {
 										<img
 											src={track.image}
 											alt={track.title}
-											className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+											className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async"
 										/>
 										{/* Progressive Overlay for Readability */}
 										<div className={cn(

@@ -188,3 +188,33 @@ html {
 .animate-spotlight {
   animation: spotlight 2s ease 0.75s 1 forwards;
 }
+
+/* Mobile performance: reduce expensive blur/backdrop-blur effects */
+@media (max-width: 768px) {
+  .backdrop-blur-xl {
+    backdrop-filter: blur(6px) !important;
+    -webkit-backdrop-filter: blur(6px) !important;
+  }
+  .backdrop-blur-md {
+    backdrop-filter: blur(4px) !important;
+    -webkit-backdrop-filter: blur(4px) !important;
+  }
+  .backdrop-blur-3xl {
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+  }
+  /* Reduce large decorative blurs that cause GPU thrashing */
+  .blur-\[120px\] {
+    filter: blur(40px) !important;
+  }
+  .blur-\[150px\] {
+    filter: blur(40px) !important;
+  }
+  .blur-\[100px\] {
+    filter: blur(30px) !important;
+  }
+  /* Promote animated elements to GPU layers */
+  .mix-blend-screen {
+    will-change: transform;
+  }
+}

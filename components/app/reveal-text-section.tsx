@@ -21,53 +21,14 @@ const shakeVariants = {
 // --- רכיב מילה בודדת ---
 const Word = ({ children, progress, range }: { children: string, progress: MotionValue<number>, range: [number, number] }) => {
     const opacity = useTransform(progress, range, [0.2, 1]);
-    
-    // Interpolate color from muted gray to full color based on scroll progress
-    // Light mode: gray (#888888) to dark (#1a1a1a)
-    const lightColor = useTransform(progress, (latest) => {
-        const [start, end] = range;
-        let v = 0;
-        if (latest >= start && latest <= end) {
-            v = (latest - start) / (end - start);
-        } else if (latest > end) {
-            v = 1;
-        }
-        const r1 = 136, g1 = 136, b1 = 136;
-        const r2 = 26, g2 = 26, b2 = 26;
-        return `rgb(${Math.round(r1 + (r2 - r1) * v)}, ${Math.round(g1 + (g2 - g1) * v)}, ${Math.round(b1 + (b2 - b1) * v)})`;
-    });
-    
-    // Dark mode: gray (#666666) to white (#ffffff)
-    const darkColor = useTransform(progress, (latest) => {
-        const [start, end] = range;
-        let v = 0;
-        if (latest >= start && latest <= end) {
-            v = (latest - start) / (end - start);
-        } else if (latest > end) {
-            v = 1;
-        }
-        const r1 = 102, g1 = 102, b1 = 102;
-        const r2 = 255, g2 = 255, b2 = 255;
-        return `rgb(${Math.round(r1 + (r2 - r1) * v)}, ${Math.round(g1 + (g2 - g1) * v)}, ${Math.round(b1 + (b2 - b1) * v)})`;
-    });
-    
+
     return (
         <span className="relative inline-block mx-[6px] lg:mx-[10px]">
-            <motion.span 
+            <motion.span
                 style={{ opacity }}
+                className="text-[#888] dark:text-[#666]"
             >
-                <motion.span 
-                    className="dark:hidden"
-                    style={{ color: lightColor }}
-                >
-                    {children}
-                </motion.span>
-                <motion.span 
-                    className="hidden dark:inline"
-                    style={{ color: darkColor }}
-                >
-                    {children}
-                </motion.span>
+                {children}
             </motion.span>
         </span>
     );
@@ -125,7 +86,7 @@ export default function RevealTextSection() {
                     <motion.div
                         variants={shakeVariants}
                         animate={isShaking ? "shaking" : "still"}
-                        className="max-w-[1200px] px-6 md:px-10 flex flex-col items-center text-center mt-20 md:mt-0 origin-center"
+                        className="max-w-[1200px] px-6 md:px-10 flex flex-col items-center text-center mt-20 md:mt-0 origin-center will-change-transform"
                     >
                         <h2 className="text-4xl lg:text-6xl leading-[1.1] font-bold tracking-tighter text-[#1a1a1a] dark:text-white">
 

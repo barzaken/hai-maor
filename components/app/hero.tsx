@@ -25,7 +25,7 @@ export function HeroSection() {
 				<div className="absolute top-1/4 left-1/4 w-[40vw] h-[40vw] bg-[#f5f511]/20 blur-[120px] rounded-full mix-blend-screen pointer-events-none" />
 			</div>
 
-			<div className="container relative z-10 mx-auto px-4 w-full max-w-5xl flex flex-col items-center text-center mt-20 md:mt-0">
+			<div className="container relative z-10 mx-auto px-4 w-full max-w-5xl flex flex-col items-center text-center mt-20 md:mt-0 pb-36 md:pb-0">
 
 				<motion.div
 					initial="hidden"
