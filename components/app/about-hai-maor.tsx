@@ -16,7 +16,7 @@ export function AboutMeSection() {
 						transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
 						className="relative h-[60dvh] w-full rounded-[2.5rem] overflow-hidden order-2 md:order-1"
 					>
-						<div className="absolute inset-0 bg-[#f5f511]/10 mix-blend-color-burn z-10 pointer-events-none" />
+						<div className="absolute inset-0 bg-[#c9c900]/10 mix-blend-color-burn z-10 pointer-events-none" />
 						<motion.div
 							initial={{ filter: "grayscale(100%)" }}
 							whileInView={{ filter: "grayscale(0%)" }}

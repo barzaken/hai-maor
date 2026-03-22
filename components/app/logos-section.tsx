@@ -101,7 +101,7 @@ function LogoCard({ logo, className, children, ...props }: LogoCardProps) {
 		>
 			<img
 				alt={logo.alt}
-				className="pointer-events-none h-4 select-none md:h-18  dark:brightness-0 dark:invert"
+				className="pointer-events-none h-8 select-none md:h-18  dark:brightness-0 dark:invert"
 				height="auto"
 				src={logo.src}
 				width="auto"

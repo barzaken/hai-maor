@@ -60,7 +60,7 @@ export function ContactSection() {
     <section id="contact" dir="rtl" className="relative overflow-hidden py-16 md:py-24 scroll-mt-24">
       {/* Decorative Blur Effect */}
       <div className="absolute inset-0 pointer-events-none -z-10 bg-background" />
-      <div className="absolute top-1/2 right-1/4 w-[40rem] h-[40rem] bg-[#f5f511]/5 blur-[150px] rounded-full mix-blend-screen -z-10 pointer-events-none translate-y-[-50%]" />
+      <div className="absolute top-1/2 right-1/4 w-[40rem] h-[40rem] bg-[#c9c900]/5 blur-[150px] rounded-full mix-blend-screen -z-10 pointer-events-none translate-y-[-50%]" />
 
       <div className="container mx-auto px-4 max-w-5xl">
         <div className="flex flex-col gap-12 items-center text-center">
@@ -72,7 +72,7 @@ export function ContactSection() {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="flex flex-col items-center"
           >
-            <p className="mb-4 text-sm font-medium tracking-widest text-[#f5f511]">מוכנים לעלות לבמה?</p>
+            <p className="mb-4 text-sm font-medium tracking-widest text-[#c9c900]">מוכנים לעלות לבמה?</p>
             <h3 className="text-4xl md:text-5xl font-semibold tracking-tight text-foreground mb-6 leading-tight">
               בואו נהפוך את הפרזנטציה הבאה שלכם לסיפור הצלחה.
             </h3>
@@ -91,7 +91,7 @@ export function ContactSection() {
             className="w-full relative p-8 md:p-12 rounded-[2.5rem] bg-white/[0.03] border border-white/5 shadow-2xl backdrop-blur-3xl overflow-hidden group text-start"
           >
             {/* Interactive Border Highlight (simulated) */}
-            <div className="absolute inset-0 bg-gradient-to-br from-[#f5f511]/10 to-transparent opacity-0 transition-opacity duration-700 group-hover:opacity-100 pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-br from-[#c9c900]/10 to-transparent opacity-0 transition-opacity duration-700 group-hover:opacity-100 pointer-events-none" />
 
             <div className="grid gap-6 md:grid-cols-2 relative z-10">
               <label className="flex flex-col gap-2 relative">
@@ -100,7 +100,7 @@ export function ContactSection() {
                   name="fullName"
                   required
                   placeholder="איך קוראים לך?"
-                  className="h-12 bg-black/20 border-white/10 focus-visible:ring-[#f5f511]/50 text-foreground rounded-xl transition-all"
+                  className="h-12 bg-black/20 border-white/10 focus-visible:ring-[#c9c900]/50 text-foreground rounded-xl transition-all"
                 />
               </label>
               <label className="flex flex-col gap-2 relative">
@@ -108,7 +108,7 @@ export function ContactSection() {
                 <Input
                   name="company"
                   placeholder="איפה את/ה עובד/ת?"
-                  className="h-12 bg-black/20 border-white/10 focus-visible:ring-[#f5f511]/50 text-foreground rounded-xl transition-all"
+                  className="h-12 bg-black/20 border-white/10 focus-visible:ring-[#c9c900]/50 text-foreground rounded-xl transition-all"
                 />
               </label>
             </div>
@@ -120,7 +120,7 @@ export function ContactSection() {
                   name="phone"
                   required
                   placeholder="באיזה מספר אפשר לתפוס אותך?"
-                  className="h-12 bg-black/20 border-white/10 focus-visible:ring-[#f5f511]/50 text-foreground rounded-xl transition-all"
+                  className="h-12 bg-black/20 border-white/10 focus-visible:ring-[#c9c900]/50 text-foreground rounded-xl transition-all"
                 />
               </label>
               <label className="flex flex-col gap-2 relative">
@@ -128,7 +128,7 @@ export function ContactSection() {
                 <Input
                   name="goal"
                   placeholder="Pitch / כנס / חסם מסוים"
-                  className="h-12 bg-black/20 border-white/10 focus-visible:ring-[#f5f511]/50 text-foreground rounded-xl transition-all"
+                  className="h-12 bg-black/20 border-white/10 focus-visible:ring-[#c9c900]/50 text-foreground rounded-xl transition-all"
                 />
               </label>
             </div>
@@ -139,7 +139,7 @@ export function ContactSection() {
                   {submitState.error ? (
                     <span className="text-red-400 font-medium">{submitState.error}</span>
                   ) : submitState.ok ? (
-                    <span className="text-[#f5f511] font-medium tracking-wide">מעולה. קיבלתי את הפנייה ואחזור בהקדם.</span>
+                    <span className="text-[#c9c900] font-medium tracking-wide">מעולה. קיבלתי את הפנייה ואחזור בהקדם.</span>
                   ) : (
                     <span className="text-gray-500">המידע נשמר בפרטיות מוחלטת.</span>
                   )}
@@ -149,7 +149,7 @@ export function ContactSection() {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   disabled={submitState.pending}
-                  className="inline-flex h-12 items-center justify-center gap-2 whitespace-nowrap rounded-xl bg-[#f5f511] px-8 text-sm font-medium text-black shadow-lg shadow-[#f5f511]/25 transition-colors hover:bg-[#f5f511] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f5f511] disabled:pointer-events-none disabled:opacity-50"
+                  className="inline-flex h-12 items-center justify-center gap-2 whitespace-nowrap rounded-xl bg-[#c9c900] px-8 text-sm font-medium text-black shadow-lg shadow-[#c9c900]/25 transition-colors hover:bg-[#c9c900] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#c9c900] disabled:pointer-events-none disabled:opacity-50"
                   type="submit"
                 >
                   {submitState.pending ? (

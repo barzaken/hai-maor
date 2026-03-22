@@ -103,37 +103,34 @@ export function MobileNav() {
 							href="#home"
 							onClick={() => setOpen(false)}
 						>
-							<Logo className="h-16 w-auto" />
 						</a>
-						<div className="grid gap-y-2">
+						<div className="flex flex-col gap-4 px-2">
 							{navLinks.map((link) => (
-								<Button
-									render={<a href={link.href} />}
-									className="justify-start"
+								<a
 									key={link.label}
+									href={link.href}
 									onClick={() => setOpen(false)}
-									variant="ghost"
+									className="text-lg font-medium text-gray-300 hover:text-[#c9c900] transition-colors"
 								>
 									{link.label}
-								</Button>
+								</a>
 							))}
 						</div>
-						<div className="mt-12 flex flex-col gap-2">
-							<Button
-								render={<a href="#story" />}
-								className="w-full"
+						<div className="mt-12 flex flex-col gap-4">
+							<a
+								href="#story"
 								onClick={() => setOpen(false)}
-								variant="outline"
+								className="inline-flex h-10 w-full items-center justify-center rounded-xl bg-[#c9c900] px-6 text-sm font-semibold text-black transition-colors hover:bg-[#d4d40b] shadow-[0_0_20px_rgba(245,245,17,0.3)] hover:shadow-[0_0_30px_rgba(245,245,17,0.5)]"
 							>
-								שיחת היכרות
-							</Button>
-							<Button
-								render={<a href="#contact" />}
-								className="w-full"
+								בואו נכיר
+							</a>
+							<a
+								href="#contact"
 								onClick={() => setOpen(false)}
+								className="inline-flex h-10 w-full items-center justify-center text-sm font-medium text-gray-300 hover:text-white transition-colors"
 							>
-								יצירת קשר
-							</Button>
+								אני רוצה לשמוע עוד
+							</a>
 						</div>
 					</div>
 				</Portal>

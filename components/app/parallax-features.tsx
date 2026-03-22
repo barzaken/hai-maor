@@ -42,14 +42,14 @@ export function ParallaxFeaturesSection() {
 
         {/* Background ambient glow */}
         <div className="absolute inset-0 pointer-events-none z-0 flex items-center justify-center">
-          <div className="w-[50vw] h-[50vw] bg-[#f5f511]/5 blur-[120px] rounded-full mix-blend-screen" />
+          <div className="w-[50vw] h-[50vw] bg-[#c9c900]/5 blur-[120px] rounded-full mix-blend-screen" />
         </div>
 
         <div className="container mx-auto px-4 max-w-7xl relative z-10 w-full flex flex-col md:flex-row items-center gap-12">
 
           {/* Right Side (Sticky Text in RTL) */}
           <div className="w-full md:w-1/2 flex flex-col items-start pt-20 md:pt-0">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#f5f511]/10 border border-[#f5f511]/20 text-[#f5f511] text-sm font-medium mb-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#c9c900]/10 border border-[#c9c900]/20 text-[#c9c900] text-sm font-medium mb-6">
               מצגות
             </div>
             <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-white mb-6">

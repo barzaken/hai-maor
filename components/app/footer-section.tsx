@@ -14,19 +14,19 @@ export function FooterSection() {
           </div>
 
           <div className="flex flex-wrap items-center justify-center gap-6">
-            <Link href="#home" className="text-sm font-medium text-gray-400 hover:text-[#f5f511] transition-colors">
+            <Link href="#home" className="text-sm font-medium text-gray-400 hover:text-[#c9c900] transition-colors">
               דף הבית
             </Link>
-            <Link href="#about" className="text-sm font-medium text-gray-400 hover:text-[#f5f511] transition-colors">
+            <Link href="#about" className="text-sm font-medium text-gray-400 hover:text-[#c9c900] transition-colors">
               עליי
             </Link>
-            <Link href="#contact" className="text-sm font-medium text-gray-400 hover:text-[#f5f511] transition-colors">
+            <Link href="#contact" className="text-sm font-medium text-gray-400 hover:text-[#c9c900] transition-colors">
               יצירת קשר
             </Link>
-            <a href="https://instagram.com" target="_blank" rel="noreferrer" className="text-sm font-medium text-gray-400 hover:text-[#f5f511] transition-colors">
+            <a href="https://instagram.com" target="_blank" rel="noreferrer" className="text-sm font-medium text-gray-400 hover:text-[#c9c900] transition-colors">
               אינסטגרם
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="text-sm font-medium text-gray-400 hover:text-[#f5f511] transition-colors">
+            <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="text-sm font-medium text-gray-400 hover:text-[#c9c900] transition-colors">
               לינקדאין
             </a>
           </div>

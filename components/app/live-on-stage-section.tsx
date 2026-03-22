@@ -18,7 +18,7 @@ export function LiveOnStageSection() {
           transition={{ duration: 0.55, ease: 'easeOut' }}
           className="flex flex-col items-center text-center max-w-2xl mx-auto"
         >
-          <p className="mb-4 text-sm font-medium tracking-widest text-[#f5f511] uppercase">גלריית תמונות</p>
+          <p className="mb-4 text-sm font-medium tracking-widest text-[#c9c900] uppercase">גלריית תמונות</p>
           <h3 className="text-4xl md:text-5xl font-semibold tracking-tight text-foreground mb-4">
             חי את הבמה
           </h3>
@@ -38,7 +38,7 @@ export function LiveOnStageSection() {
       >
         <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
-        
+
         <div className="w-full max-w-[1400px]">
           <ThreeDMarqueeDemo />
         </div>

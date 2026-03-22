@@ -40,8 +40,8 @@ export function TheNeedSection() {
 		<section className="relative py-24 md:py-32 w-full overflow-hidden" dir="rtl">
 			{/* Ambient Noise / Lighting */}
 			<div className="absolute inset-0 pointer-events-none -z-10">
-				<div className="absolute top-0 right-1/4 w-[30rem] h-[30rem] bg-[#f5f511]/5 blur-[120px] rounded-full mix-blend-screen" />
-				<div className="absolute bottom-0 left-1/4 w-[20rem] h-[20rem] bg-[#f5f511]/5 blur-[100px] rounded-full mix-blend-screen" />
+				<div className="absolute top-0 right-1/4 w-[30rem] h-[30rem] bg-[#c9c900]/5 blur-[120px] rounded-full mix-blend-screen" />
+				<div className="absolute bottom-0 left-1/4 w-[20rem] h-[20rem] bg-[#c9c900]/5 blur-[100px] rounded-full mix-blend-screen" />
 			</div>
 
 			<div className="container mx-auto px-4 max-w-7xl">
@@ -57,7 +57,7 @@ export function TheNeedSection() {
 						<motion.span
 							initial={{ backgroundColor: "transparent", color: "inherit" }}
 							whileInView={{
-								backgroundColor: "#f5f511",
+								backgroundColor: "#c9c900",
 								color: "#000",
 								transition: { delay: 2, duration: 0.6, ease: "circOut" },
 							}}
@@ -107,7 +107,7 @@ export function TheNeedSection() {
 						>
 							{/* Static Subtle Border */}
 							<div className="absolute inset-0 z-0 pointer-events-none">
-								<div className="absolute inset-[-1px] rounded-[2.5rem] border border-[#f5f511]/15 group-hover:border-[#f5f511]/40 transition-colors duration-500" />
+								<div className="absolute inset-[-1px] rounded-[2.5rem] border border-[#c9c900]/15 group-hover:border-[#c9c900]/40 transition-colors duration-500" />
 							</div>
 
 							{/* Background Image */}

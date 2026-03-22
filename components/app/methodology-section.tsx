@@ -51,7 +51,7 @@ export function MethodologySection() {
 							whileInView={{ opacity: 1, scale: 1 }}
 							viewport={{ once: true }}
 							transition={{ delay: 0.2, duration: 0.5 }}
-							className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#f5f511]/10 border border-[#f5f511]/20 text-[#f5f511] text-sm font-medium"
+							className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#c9c900]/10 border border-[#c9c900]/20 text-[#c9c900] text-sm font-medium"
 						>
 							לא קורס משחק, זו אסטרטגיה עסקית
 						</motion.div>
@@ -64,7 +64,7 @@ export function MethodologySection() {
 							className="text-3xl md:text-5xl font-semibold tracking-tight text-foreground leading-tight"
 						>
 							ארגז הכלים של <br />
-							<span className="text-[#f5f511]">״במה עסקית״.</span>
+							<span className="text-[#c9c900]">״במה עסקית״.</span>
 						</motion.h2>
 
 						<motion.p
@@ -112,7 +112,7 @@ export function MethodologySection() {
 								}}
 								className={cn(
 									"group relative p-6 rounded-3xl bg-background border border-border overflow-hidden min-h-[220px] flex flex-col justify-end",
-									"shadow-[0_4px_24px_rgba(0,0,0,0.4)] transition-colors duration-500 hover:border-[#f5f511]/50"
+									"shadow-[0_4px_24px_rgba(0,0,0,0.4)] transition-colors duration-500 hover:border-[#c9c900]/50"
 								)}
 							>
 								{/* Background Image */}
@@ -130,9 +130,9 @@ export function MethodologySection() {
 								)}
 
 								{/* Hover Tint */}
-								<div className="absolute inset-0 bg-[#f5f511]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-1" />
+								<div className="absolute inset-0 bg-[#c9c900]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-1" />
 
-								<div className="w-10 h-10 rounded-xl bg-[#f5f511]/10 flex items-center justify-center mb-6 text-[#f5f511] relative z-10">
+								<div className="w-10 h-10 rounded-xl bg-[#c9c900]/10 flex items-center justify-center mb-6 text-[#c9c900] relative z-10">
 									<tool.icon className="w-5 h-5 group-hover:scale-110 transition-transform duration-300 ease-out" />
 								</div>
 

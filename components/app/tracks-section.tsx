@@ -104,7 +104,7 @@ export function TracksSection() {
 
 							{/* Soft Glow on Featured */}
 							{track.featured && (
-								<div className="absolute inset-0 bg-gradient-to-br from-[#f5f511]/10 to-transparent opacity-50 pointer-events-none z-1" />
+								<div className="absolute inset-0 bg-gradient-to-br from-[#c9c900]/10 to-transparent opacity-50 pointer-events-none z-1" />
 							)}
 
 							<div className="relative z-10">
@@ -115,7 +115,7 @@ export function TracksSection() {
 									{track.title}
 								</h3>
 								{track.subtitle && (
-									<p className="text-sm font-medium text-[#f5f511] mb-4">{track.subtitle}</p>
+									<p className="text-sm font-medium text-[#c9c900] mb-4">{track.subtitle}</p>
 								)}
 								<p className={cn(
 									"text-sm leading-relaxed mt-4 line-clamp-3 transition-opacity duration-300",
@@ -127,7 +127,7 @@ export function TracksSection() {
 
 								<button className={cn(
 									"mt-8 inline-flex items-center gap-2 text-sm font-medium transition-colors w-fit",
-									track.featured ? "text-[#f5f511] hover:text-emerald-300" : "text-foreground hover:text-gray-300"
+									track.featured ? "text-[#c9c900] hover:text-emerald-300" : "text-foreground hover:text-gray-300"
 								)}>
 									לפרטים נוספים
 									<ArrowLeftIcon className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />

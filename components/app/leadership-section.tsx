@@ -41,7 +41,7 @@ export function LeadershipSection() {
     <section id="leadership" className="relative py-24 md:py-32 bg-background overflow-hidden" dir="rtl">
       {/* Ambient Noise / Lighting - Constant with website theme */}
       <div className="absolute inset-0 pointer-events-none -z-10">
-        <div className="absolute top-0 right-1/4 w-[30rem] h-[30rem] bg-[#f5f511]/5 blur-[120px] rounded-full mix-blend-screen" />
+        <div className="absolute top-0 right-1/4 w-[30rem] h-[30rem] bg-[#c9c900]/5 blur-[120px] rounded-full mix-blend-screen" />
       </div>
 
       <div className="container mx-auto px-4 max-w-7xl relative z-10">
@@ -50,7 +50,7 @@ export function LeadershipSection() {
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#f5f511]/10 border border-[#f5f511]/20 text-[#f5f511] text-sm font-medium mb-6"
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#c9c900]/10 border border-[#c9c900]/20 text-[#c9c900] text-sm font-medium mb-6"
           >
             ניהול
           </motion.div>
@@ -97,7 +97,7 @@ export function LeadershipSection() {
               whileHover={{ y: -5 }}
               className={cn(
                 "group relative p-8 rounded-[2.5rem] bg-white/5 border border-white/5 backdrop-blur-xl overflow-hidden flex flex-col items-start justify-end",
-                "shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_8px_32px_rgba(0,0,0,0.12)] hover:border-[#f5f511]/30 transition-all duration-500",
+                "shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_8px_32px_rgba(0,0,0,0.12)] hover:border-[#c9c900]/30 transition-all duration-500",
                 item.className
               )}
             >
@@ -114,9 +114,9 @@ export function LeadershipSection() {
               )}
 
               {/* Hover Glow Effect */}
-              <div className="absolute inset-0 bg-[#f5f511]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+              <div className="absolute inset-0 bg-[#c9c900]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
 
-              <div className="absolute top-8 right-8 w-12 h-12 rounded-2xl bg-[#f5f511]/10 flex items-center justify-center border border-[#f5f511]/20 mb-auto text-[#f5f511] z-10">
+              <div className="absolute top-8 right-8 w-12 h-12 rounded-2xl bg-[#c9c900]/10 flex items-center justify-center border border-[#c9c900]/20 mb-auto text-[#c9c900] z-10">
                 <item.icon className="w-6 h-6 group-hover:scale-110 transition-transform duration-500" />
               </div>
 
