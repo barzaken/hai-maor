@@ -13,7 +13,7 @@ const tools = [
 	},
 	{
 		title: "שפת גוף, נוכחות וכריזמה",
-		description: "שימוש נכון בחלל, קשר עין ושידור סמכות וחום.",
+		description: "שימוש נכון בחלל, קשר עין ושידור סמכות ותקשורת בין אישית.",
 		icon: User,
 		image: "https://images.unsplash.com/photo-1552345387-67b2f85f25c6?q=80&w=1686&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
 	},
@@ -51,7 +51,7 @@ export function MethodologySection() {
 							whileInView={{ opacity: 1, scale: 1 }}
 							viewport={{ once: true }}
 							transition={{ delay: 0.2, duration: 0.5 }}
-							className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#c9c900]/10 border border-[#c9c900]/20 text-[#c9c900] text-sm font-medium"
+							className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#f0c246]10 border border-[#f0c246]/20 text-[#f0c246] text-sm font-medium"
 						>
 							לא קורס משחק, זו אסטרטגיה עסקית
 						</motion.div>
@@ -64,7 +64,7 @@ export function MethodologySection() {
 							className="text-3xl md:text-5xl font-semibold tracking-tight text-foreground leading-tight"
 						>
 							ארגז הכלים של <br />
-							<span className="text-[#c9c900]">״במה עסקית״.</span>
+							<span className="text-[#f0c246]">״במה עסקית״.</span>
 						</motion.h2>
 
 						<motion.p
@@ -112,7 +112,7 @@ export function MethodologySection() {
 								}}
 								className={cn(
 									"group relative p-6 rounded-3xl bg-background border border-border overflow-hidden min-h-[220px] flex flex-col justify-end",
-									"shadow-[0_4px_24px_rgba(0,0,0,0.4)] transition-colors duration-500 hover:border-[#c9c900]/50"
+									"shadow-[0_4px_24px_rgba(0,0,0,0.4)] transition-colors duration-500 hover:border-[#f0c246]/50"
 								)}
 							>
 								{/* Background Image */}
@@ -130,9 +130,9 @@ export function MethodologySection() {
 								)}
 
 								{/* Hover Tint */}
-								<div className="absolute inset-0 bg-[#c9c900]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-1" />
+								<div className="absolute inset-0 bg-[#f0c246]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-1" />
 
-								<div className="w-10 h-10 rounded-xl bg-[#c9c900]/10 flex items-center justify-center mb-6 text-[#c9c900] relative z-10">
+								<div className="w-10 h-10 rounded-xl bg-[#f0c246]10 flex items-center justify-center mb-6 text-[#f0c246] relative z-10">
 									<tool.icon className="w-5 h-5 group-hover:scale-110 transition-transform duration-300 ease-out" />
 								</div>
 

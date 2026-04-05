@@ -18,7 +18,7 @@ export function LiveOnStageSection() {
           transition={{ duration: 0.55, ease: 'easeOut' }}
           className="flex flex-col items-center text-center max-w-2xl mx-auto"
         >
-          <p className="mb-4 text-sm font-medium tracking-widest text-[#c9c900] uppercase">גלריית תמונות</p>
+          <p className="mb-4 text-sm font-medium tracking-widest text-[#f0c246] uppercase">גלריית תמונות</p>
           <h3 className="text-4xl md:text-5xl font-semibold tracking-tight text-foreground mb-4">
             חי את הבמה
           </h3>

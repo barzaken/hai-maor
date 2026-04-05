@@ -39,7 +39,7 @@ export function SalesPitchSection() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2, duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#c9c900]/10 border border-[#c9c900]/20 text-[#c9c900] text-sm font-medium"
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#f0c246]10 border border-[#f0c246]/20 text-[#f0c246] text-sm font-medium"
             >
               מכירות וגיוסים
             </motion.div>
@@ -52,7 +52,7 @@ export function SalesPitchSection() {
               className="text-3xl md:text-5xl font-semibold tracking-tight text-foreground leading-tight"
             >
               להפוך מילים <br />
-              <span className="text-[#c9c900]">לתוצאות עסקיות.</span>
+              <span className="text-[#f0c246]">לתוצאות עסקיות.</span>
             </motion.h2>
 
             <motion.p
@@ -91,7 +91,7 @@ export function SalesPitchSection() {
                   }}
                   className="flex items-center gap-3 text-foreground/80"
                 >
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#c9c900]" />
+                  <div className="w-1.5 h-1.5 rounded-full bg-[#f0c246]" />
                   <span className="text-sm font-medium">{item}</span>
                 </motion.div>
               ))}
@@ -132,14 +132,14 @@ export function SalesPitchSection() {
                 }}
                 className={cn(
                   "group relative p-8 rounded-3xl bg-white/5 border border-white/5 overflow-hidden",
-                  "shadow-[0_4px_24px_rgba(0,0,0,0.4)] transition-all duration-500 hover:border-[#c9c900]/50",
+                  "shadow-[0_4px_24px_rgba(0,0,0,0.4)] transition-all duration-500 hover:border-[#f0c246]/50",
                   i === 2 ? "sm:col-span-2" : ""
                 )}
               >
                 {/* Hover Tint */}
-                <div className="absolute inset-0 bg-[#c9c900]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-[#f0c246]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-                <div className="w-12 h-12 rounded-xl bg-[#c9c900]/10 flex items-center justify-center mb-6 text-[#c9c900] border border-[#c9c900]/20">
+                <div className="w-12 h-12 rounded-xl bg-[#f0c246]10 flex items-center justify-center mb-6 text-[#f0c246] border border-[#f0c246]/20">
                   <point.icon className="w-6 h-6 group-hover:scale-110 transition-transform duration-300 ease-out" />
                 </div>
 

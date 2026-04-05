@@ -8,6 +8,7 @@ import { MethodologySection } from "@/components/app/methodology-section";
 import { TracksSection } from "@/components/app/tracks-section";
 import { AboutMeSection } from "@/components/app/about-hai-maor";
 import { ContactSection } from "@/components/app/contact-section";
+import { TestimonialsSection } from "@/components/app/testimonials-section";
 import { FooterSection } from "@/components/app/footer-section";
 import { FullWidthDivider } from "@/components/ui/full-width-divider";
 import { ExpandableCardDemo } from "@/components/app/tv-section";
@@ -30,6 +31,7 @@ export default function Home() {
 
         <RevealTextSection />
         <FullWidthDivider />
+        <AboutMeSection />
 
         <TheNeedSection />
         <FullWidthDivider />
@@ -53,10 +55,13 @@ export default function Home() {
         <TracksSection />
         <FullWidthDivider />
 
-        <AboutMeSection />
+        {/* <AboutMeSection /> */}
         <FullWidthDivider />
 
         <LiveOnStageSection />
+        <FullWidthDivider />
+
+        <TestimonialsSection />
 
         <ContactSection />
 

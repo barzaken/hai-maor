@@ -13,7 +13,7 @@ export function HeroSection() {
 			{/* Background Image with Overlays */}
 			<div className="absolute inset-0 z-0">
 				<Image
-					src="/img/hai-maor-speaks-2.png"
+					src="/img/hai-maor-speaks-2.jpeg"
 					alt="חי מאור - מומחה לעמידה מול קהל ופרזנטציה עסקית מרצה על במה"
 					fill
 					priority
@@ -22,7 +22,7 @@ export function HeroSection() {
 				{/* Dark gradient mapping to make text readable */}
 				<div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-background/30" />
 				<div className="absolute inset-0 bg-black/40" />
-				<div className="absolute top-1/4 left-1/4 w-[40vw] h-[40vw] bg-[#c9c900]/20 blur-[120px] rounded-full mix-blend-screen pointer-events-none" />
+				<div className="absolute top-1/4 left-1/4 w-[40vw] h-[40vw] bg-[#f0c246]/20 blur-[120px] rounded-full mix-blend-screen pointer-events-none" />
 			</div>
 
 			<div className="container relative z-10 mx-auto px-4 w-full max-w-5xl flex flex-col items-center text-center mt-20 md:mt-0 pb-36 md:pb-0">
@@ -46,7 +46,7 @@ export function HeroSection() {
 						}}
 						className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black/40 border border-white/10 shadow-[inner_0_1px_0_rgba(255,255,255,0.1)] backdrop-blur-md"
 					>
-						<span className="flex h-2 w-2 rounded-full bg-[#c9c900] animate-pulse" />
+						<span className="flex h-2 w-2 rounded-full bg-[#f0c246] animate-pulse" />
 						<span className="text-sm font-medium tracking-wide text-foreground/90">
 							ההרשמה לסדנאות נפתחה
 						</span>
@@ -60,7 +60,7 @@ export function HeroSection() {
 					>
 						לא רק לדבר.
 						<br />
-						<span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-indigo-200 to-[#c9c900]">
+						<span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-indigo-200 to-[#f0c246]">
 							לשלוט בבמה.
 						</span>
 					</motion.h1>
@@ -93,7 +93,7 @@ export function HeroSection() {
 						<motion.button
 							whileHover={{ scale: 1.05 }}
 							whileTap={{ scale: 0.95 }}
-							className="inline-flex w-full sm:w-auto items-center justify-center gap-2 whitespace-nowrap rounded-xl text-base font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring bg-[#c9c900] text-black shadow-lg hover:bg-[#c9c900] h-14 px-10"
+							className="inline-flex w-full sm:w-auto items-center justify-center gap-2 whitespace-nowrap rounded-xl text-base font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring bg-[#f0c246] text-black shadow-lg hover:bg-[#f0c246] h-14 px-10"
 						>
 							<ArrowLeftIcon className="w-5 h-5 ml-2" />
 							בואו נכיר

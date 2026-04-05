@@ -45,7 +45,7 @@ export function OutcomesSection() {
                 transition={{ duration: 0.35, delay: index * 0.05, ease: 'easeOut' }}
                 className="flex items-start gap-3 rounded-xl border border-border/60 bg-background/75 p-3 text-sm leading-7 backdrop-blur-sm md:text-base"
               >
-                <CircleCheckBigIcon className="mt-1 size-4 shrink-0 text-[#c9c900] dark:text-[#c9c900]" />
+                <CircleCheckBigIcon className="mt-1 size-4 shrink-0 text-[#f0c246] dark:text-[#f0c246]" />
                 <span>{item}</span>
               </motion.div>
             ))}

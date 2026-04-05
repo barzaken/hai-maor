@@ -44,7 +44,7 @@ export function ServiceStorySection() {
                 transition={{ duration: 0.35, delay: index * 0.06, ease: 'easeOut' }}
                 className=" p-3 text-sm leading-6 backdrop-blur-sm"
               >
-                <span className="inline-flex items-center gap-2 text-amber-700 dark:text-[#c9c900]">
+                <span className="inline-flex items-center gap-2 text-amber-700 dark:text-[#f0c246]">
                   <SparklesIcon className="size-4" />
                   <p className="mt-2 text-muted-foreground">{item}</p>
                 </span>

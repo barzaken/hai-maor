@@ -68,7 +68,7 @@ export function ExpandableCardDemo() {
   return (
     <section ref={sectionRef} dir="rtl" className="relative w-full py-24 md:py-32 overflow-hidden bg-background">
       {/* Ambient Glow */}
-      <div className="absolute top-1/2 left-0 w-[40rem] h-[40rem] bg-[#c9c900]/5 blur-[120px] rounded-full mix-blend-screen -z-10 pointer-events-none translate-y-[-50%] -translate-x-1/2" />
+      <div className="absolute top-1/2 left-0 w-[40rem] h-[40rem] bg-[#f0c246]/5 blur-[120px] rounded-full mix-blend-screen -z-10 pointer-events-none translate-y-[-50%] -translate-x-1/2" />
 
       <AnimatePresence>
         {active && (
@@ -120,7 +120,7 @@ export function ExpandableCardDemo() {
                     </motion.h3>
                     <motion.p
                       layoutId={`description-${active.subtitle}-${id}`}
-                      className="text-sm font-medium text-[#c9c900]"
+                      className="text-sm font-medium text-[#f0c246]"
                     >
                       {active.subtitle}
                     </motion.p>
@@ -159,7 +159,7 @@ export function ExpandableCardDemo() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           {/* Text Content - order-1 on mobile, order-1 on lg */}
           <div className="flex flex-col items-start order-1">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#c9c900]/10 border border-[#c9c900]/20 text-[#c9c900] text-sm font-medium mb-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#f0c246]10 border border-[#f0c246]/20 text-[#f0c246] text-sm font-medium mb-6">
               על המסך
             </div>
             <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-foreground leading-tight mb-6">
@@ -179,7 +179,7 @@ export function ExpandableCardDemo() {
                   "החזקת פאסון תוך שידור סמכות",
                 ].map((feature) => (
                   <div className="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/5" key={feature}>
-                    <div className="w-6 h-6 rounded-full bg-[#c9c900]/20 flex items-center justify-center text-[#c9c900] shrink-0">
+                    <div className="w-6 h-6 rounded-full bg-[#f0c246]/20 flex items-center justify-center text-[#f0c246] shrink-0">
                       <CheckIcon className="w-4 h-4" />
                     </div>
                     <span className="text-gray-300 font-medium">{feature}</span>
@@ -279,7 +279,7 @@ export function ExpandableCardDemo() {
 
                       <div className="absolute bottom-6 right-6 left-6 text-right">
                         <h3 className="text-xl md:text-2xl font-bold text-white mb-1">{show.title}</h3>
-                        <p className="text-sm font-medium text-[#c9c900]">{show.subtitle}</p>
+                        <p className="text-sm font-medium text-[#f0c246]">{show.subtitle}</p>
                       </div>
                     </motion.div>
                   ))}

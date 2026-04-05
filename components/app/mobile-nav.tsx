@@ -110,7 +110,7 @@ export function MobileNav() {
 									key={link.label}
 									href={link.href}
 									onClick={() => setOpen(false)}
-									className="text-lg font-medium text-gray-300 hover:text-[#c9c900] transition-colors"
+									className="text-lg font-medium text-gray-300 hover:text-[#f0c246] transition-colors"
 								>
 									{link.label}
 								</a>
@@ -120,7 +120,7 @@ export function MobileNav() {
 							<a
 								href="#story"
 								onClick={() => setOpen(false)}
-								className="inline-flex h-10 w-full items-center justify-center rounded-xl bg-[#c9c900] px-6 text-sm font-semibold text-black transition-colors hover:bg-[#d4d40b] shadow-[0_0_20px_rgba(245,245,17,0.3)] hover:shadow-[0_0_30px_rgba(245,245,17,0.5)]"
+								className="inline-flex h-10 w-full items-center justify-center rounded-xl bg-[#f0c246] px-6 text-sm font-semibold text-black transition-colors hover:bg-[#d4d40b] shadow-[0_0_20px_rgba(245,245,17,0.3)] hover:shadow-[0_0_30px_rgba(245,245,17,0.5)]"
 							>
 								בואו נכיר
 							</a>
