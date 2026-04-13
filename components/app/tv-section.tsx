@@ -156,7 +156,7 @@ export function ExpandableCardDemo() {
       </AnimatePresence>
 
       <div className="container mx-auto px-4 max-w-7xl">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
           {/* Text Content - order-1 on mobile, order-1 on lg */}
           <div className="flex flex-col items-start order-1">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#f0c246]10 border border-[#f0c246]/20 text-[#f0c246] text-sm font-medium mb-6">
@@ -169,7 +169,7 @@ export function ExpandableCardDemo() {
               במהלך הקריירה שלי השתתפתי במגוון סדרות ישראליות בולטות שמציגות שילוב של קומדיה, דרמה ופשע. הניסיון הזה הוא הבסיס לכלים שאני מעביר הלאה.
             </p>
 
-            <div className="space-y-4 text-sm w-full">
+            {/* <div className="space-y-4 text-sm w-full">
               <p className="font-medium text-gray-300">הכלים שאנחנו שואבים מעולם המסך:</p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {[
@@ -186,7 +186,7 @@ export function ExpandableCardDemo() {
                   </div>
                 ))}
               </div>
-            </div>
+            </div> */}
           </div>
 
           {/* TV Frame & Cards - order-2 on mobile, order-2 on lg */}

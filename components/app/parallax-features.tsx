@@ -114,7 +114,7 @@ export function ParallaxFeaturesSection() {
                     </div>
 
                     <div className="absolute bottom-0 left-0 right-0 p-8 z-20 flex flex-col gap-3">
-                      <h3 className="text-2xl md:text-3xl font-bold text-white drop-shadow-md">
+                      <h3 className="text-3xl md:text-4xl font-bold text-white drop-shadow-md">
                         {item.title}
                       </h3>
                       {/* <p className="text-gray-300 drop-shadow-sm leading-relaxed max-w-lg">

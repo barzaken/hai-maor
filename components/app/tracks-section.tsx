@@ -4,31 +4,36 @@ import { motion } from "motion/react";
 import { ArrowLeftIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 
+const trackImageTone =
+	"object-cover grayscale hover:grayscale-0 transition-all duration-700 ease-out";
+
 const tracks = [
 	{
 		title: "מפגשים אישיים (VIP)",
 		description: "ליווי אישי מ-A ל-B, כולל צילום וידאו לשיפור תוצאות בלייב ומבחן התוצאה.",
 		featured: true,
-		image: "/img/tracks/vip.png",
+		images: ["/img/tracks/personal.jpeg"],
 	},
 	{
 		title: "סדנת פרקטיקום לצוותים",
 		description: "4-5 שעות ממוקדות לקבוצות קטנות (עד 30 איש) עם דגש על תרגול מעשי מול מצלמה.",
 		featured: false,
-		image: "/img/tracks/workshop.png",
+		// images: ["/img/tracks/teams.jpeg", "/img/tracks/teams2.jpeg"],
+		images: ["/img/tracks/teams.jpeg"],
 	},
 	{
 		title: "הרצאה חווייתית",
 		description: "שעה וחצי של שבירת מיתוסים, הומור וכלים למחשבה מחוץ לקופסה עבור קהלים גדולים.",
 		featured: false,
-		image: "/img/tracks/lecture.png",
+		// images: ["/img/tracks/lecture.jpeg", "/img/tracks/lecture2.jpeg"],
+		images: ["/img/tracks/lecture.jpeg"],
 	},
 	{
 		title: "הקורס המלא",
 		subtitle: "(אמנות הפרזנטציה)",
 		description: "שמונה מפגשי עומק המסתיימים באירוע חשיפה בסגנון TED.",
 		featured: false,
-		image: "/img/tracks/ted.png",
+		images: ["/img/tracks/full-course.jpeg"],
 	},
 ];
 
@@ -53,7 +58,7 @@ export function TracksSection() {
 						transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
 						className="text-base text-gray-400 leading-relaxed md:text-lg"
 					>
-						מליווי אישי אחד על אחד ועד להרצאות וסדנאות לחברות ואגונים.
+						מליווי אישי אחד על אחד ועד להרצאות וסדנאות לחברות ואירגונים.
 					</motion.p>
 				</div>
 
@@ -84,22 +89,48 @@ export function TracksSection() {
 									: "border-border shadow-sm hover:border-white/20"
 							)}
 						>
-							{/* Background Image with Overlay */}
-							{track.image && (
-								<>
-									<div className="absolute inset-0 z-0">
+							{/* Background image(s) + overlay — B&W matches parallax-features parallaxContent */}
+							{track.images.length > 0 && (
+								<div className="absolute inset-0 z-0">
+									{track.images.length === 1 ? (
 										<img
-											src={track.image}
+											src={track.images[0]}
 											alt={track.title}
-											className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async"
+											className={cn(
+												"w-full h-full transition-transform duration-700 group-hover:scale-110",
+												trackImageTone
+											)}
+											loading="lazy"
+											decoding="async"
 										/>
-										{/* Progressive Overlay for Readability */}
-										<div className={cn(
-											"absolute inset-0 bg-gradient-to-t from-background via-background/80 to-background/20",
+									) : (
+										<div className="absolute inset-0 grid grid-cols-2 gap-2 md:gap-3 p-2 md:p-3">
+											{track.images.map((src, imgIndex) => (
+												<div
+													key={src}
+													className="relative min-h-0 h-full rounded-xl overflow-hidden shadow-inner"
+												>
+													<img
+														src={src}
+														alt={`${track.title} — ${imgIndex + 1}`}
+														className={cn(
+															"absolute inset-0 w-full h-full transition-transform duration-700 group-hover:scale-110",
+															trackImageTone
+														)}
+														loading="lazy"
+														decoding="async"
+													/>
+												</div>
+											))}
+										</div>
+									)}
+									<div
+										className={cn(
+											"absolute inset-0 bg-gradient-to-t from-background via-background/80 to-background/20 pointer-events-none",
 											track.featured && "from-black via-black/60 to-transparent"
-										)} />
-									</div>
-								</>
+										)}
+									/>
+								</div>
 							)}
 
 							{/* Soft Glow on Featured */}
