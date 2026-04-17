@@ -21,15 +21,15 @@ export function ContactSection() {
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    const form = event.currentTarget;
     setSubmitState({ error: null, ok: false, pending: true });
 
-    const formData = new FormData(event.currentTarget);
+    const formData = new FormData(form);
     const payload = {
       fullName: String(formData.get('fullName') || '').trim(),
       email: String(formData.get('email') || '').trim(),
       phone: String(formData.get('phone') || '').trim(),
-      message: '',
-      goal: '',
+      description: String(formData.get('description') || '').trim(),
     };
 
     try {
@@ -39,13 +39,25 @@ export function ContactSection() {
         method: 'POST',
       });
 
-      if (!response.ok) throw new Error('failed');
+      if (!response.ok) {
+        let errorText = 'שליחה נכשלה. נסו שוב מאוחר יותר.';
+        try {
+          const data = (await response.json()) as { error?: string; hint?: string };
+          if (data?.error) {
+            errorText = data.hint ? `${data.error} ${data.hint}` : data.error;
+          }
+        } catch {
+          /* ignore non-JSON error bodies */
+        }
+        setSubmitState({ error: errorText, ok: false, pending: false });
+        return;
+      }
 
-      event.currentTarget.reset();
+      form.reset();
       setSubmitState({ error: null, ok: true, pending: false });
     } catch {
       setSubmitState({
-        error: 'Connection failed. Please try again.',
+        error: 'אין חיבור לשרת. נסו שוב.',
         ok: false,
         pending: false,
       });
@@ -96,7 +108,7 @@ export function ContactSection() {
             className="w-full max-w-3xl flex flex-col items-center"
           >
             {/* Horizontal Layout for Inputs */}
-            <div className="grid grid-cols-2 md:grid-cols-3 w-full gap-3 mb-8">
+            <div className="grid grid-cols-2 md:grid-cols-3 w-full gap-3 mb-4">
               <input
                 name="fullName"
                 required
@@ -117,6 +129,14 @@ export function ContactSection() {
                 className="col-span-2 md:col-span-1 w-full h-12 bg-[#1a1a1a] text-white border border-white/10 focus:border-[#f0c246] rounded-lg px-4 placeholder:text-white/40 outline-none transition-all text-sm text-right"
               />
             </div>
+
+            <textarea
+              name="description"
+              required
+              rows={4}
+              placeholder="תיאור הפנייה"
+              className="w-full mb-8 min-h-[100px] resize-y bg-[#1a1a1a] text-white border border-white/10 focus:border-[#f0c246] rounded-lg px-4 py-3 placeholder:text-white/40 outline-none transition-all text-sm text-right"
+            />
 
             {/* Status and Submit */}
             <div className="w-full flex flex-col items-center">
