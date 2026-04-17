@@ -65,7 +65,7 @@ export function ContactSection() {
   }
 
   return (
-    <section id="contact" dir="rtl" className="relative overflow-hidden py-16 md:py-24 scroll-mt-24 bg-gradient-to-br from-[#1a1505] via-[#2b220a] to-[#0f0c03]">
+    <section id="contact" dir="rtl" className="relative overflow-hidden py-16 md:py-24 scroll-mt-28 bg-gradient-to-br from-[#1a1505] via-[#2b220a] to-[#0f0c03]">
       {/* Testimonial Style Black Background */}
       <div className="absolute inset-0 pointer-events-none -z-10  border-t border-b border-white/10 shadow-2xl" />
 

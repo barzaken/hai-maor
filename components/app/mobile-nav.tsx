@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 import React from "react";
 import { Portal, PortalBackdrop } from "@/components/ui/portal";
 import { Button } from "@/components/ui/button";
-import { navLinks } from "@/components/app/header";
+import { navLinks, scrollToSection } from "@/components/app/header";
 import { Logo } from "@/components/app/logo";
 import { XIcon, MenuIcon } from "lucide-react";
 
@@ -109,7 +109,11 @@ export function MobileNav() {
 								<a
 									key={link.label}
 									href={link.href}
-									onClick={() => setOpen(false)}
+									onClick={(e) => {
+										e.preventDefault();
+										scrollToSection(link.href);
+										setOpen(false);
+									}}
 									className="text-lg font-medium text-gray-300 hover:text-[#f0c246] transition-colors"
 								>
 									{link.label}
@@ -119,14 +123,22 @@ export function MobileNav() {
 						<div className="mt-12 flex flex-col gap-4">
 							<a
 								href="#story"
-								onClick={() => setOpen(false)}
+								onClick={(e) => {
+									e.preventDefault();
+									scrollToSection("#story");
+									setOpen(false);
+								}}
 								className="inline-flex h-10 w-full items-center justify-center rounded-xl bg-[#f0c246] px-6 text-sm font-semibold text-black transition-colors hover:bg-[#d4d40b] shadow-[0_0_20px_rgba(245,245,17,0.3)] hover:shadow-[0_0_30px_rgba(245,245,17,0.5)]"
 							>
 								בואו נכיר
 							</a>
 							<a
 								href="#contact"
-								onClick={() => setOpen(false)}
+								onClick={(e) => {
+									e.preventDefault();
+									scrollToSection("#contact");
+									setOpen(false);
+								}}
 								className="inline-flex h-10 w-full items-center justify-center text-sm font-medium text-gray-300 hover:text-white transition-colors"
 							>
 								אני רוצה לשמוע עוד

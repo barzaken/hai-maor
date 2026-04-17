@@ -1,4 +1,5 @@
 "use client";
+import type { MouseEvent } from "react";
 import { cn } from "@/lib/utils";
 import { Logo } from "@/components/app/logo";
 import { useScroll } from "@/hooks/use-scroll";
@@ -24,6 +25,18 @@ export const navLinks = [
 	},
 ];
 
+export function scrollToSection(href: string) {
+	const id = href.replace(/^#/, "");
+	const el = document.getElementById(id);
+	if (!el) return;
+	el.scrollIntoView({ behavior: "smooth", block: "start" });
+	window.history.replaceState(null, "", href);
+}
+
+function sectionNavClick(e: MouseEvent<HTMLAnchorElement>, href: string) {
+	e.preventDefault();
+	scrollToSection(href);
+}
 
 export function Header() {
 	const scrolled = useScroll(10);
@@ -59,6 +72,7 @@ export function Header() {
 							<a
 								key={link.label}
 								href={link.href}
+								onClick={(e) => sectionNavClick(e, link.href)}
 								className="text-sm font-medium text-gray-300 hover:text-[#f0c246] transition-colors relative group"
 							>
 								{link.label}
@@ -69,12 +83,14 @@ export function Header() {
 					<div className="flex items-center gap-4">
 						<a
 							href="#contact"
+							onClick={(e) => sectionNavClick(e, "#contact")}
 							className="text-sm font-medium text-gray-300 hover:text-white transition-colors"
 						>
 							אני רוצה לשמוע עוד
 						</a>
 						<a
 							href="#story"
+							onClick={(e) => sectionNavClick(e, "#story")}
 							className="inline-flex h-10 items-center justify-center rounded-xl bg-[#f0c246] px-6 text-sm font-semibold text-black transition-colors hover:bg-[#d4d40b] shadow-[0_0_20px_rgba(245,245,17,0.3)] hover:shadow-[0_0_30px_rgba(245,245,17,0.5)]"
 						>
 							בואו נכיר

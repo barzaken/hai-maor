@@ -33,7 +33,11 @@ const tools = [
 
 export function MethodologySection() {
 	return (
-		<section className="relative py-24 md:py-32 w-full overflow-hidden bg-white/5" dir="rtl">
+		<section
+			id="story"
+			className="relative scroll-mt-28 py-24 md:py-32 w-full overflow-hidden bg-white/5"
+			dir="rtl"
+		>
 			<div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 mix-blend-overlay pointer-events-none" />
 
 			<div className="container mx-auto px-4 max-w-7xl relative z-10">

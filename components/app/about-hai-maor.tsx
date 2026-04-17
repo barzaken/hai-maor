@@ -5,7 +5,11 @@ import Image from "next/image";
 
 export function AboutMeSection() {
 	return (
-		<section className="relative py-24 md:py-32 w-full overflow-hidden bg-background" dir="rtl">
+		<section
+			id="about"
+			className="relative scroll-mt-28 py-24 md:py-32 w-full overflow-hidden bg-background"
+			dir="rtl"
+		>
 			<div className="container mx-auto px-4 max-w-7xl">
 				<div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center">
 					{/* Image Side (Right in RTL) */}

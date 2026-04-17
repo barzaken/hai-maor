@@ -66,7 +66,12 @@ export function ExpandableCardDemo() {
   useOutsideClick(ref, () => setActive(null));
 
   return (
-    <section ref={sectionRef} dir="rtl" className="relative w-full py-24 md:py-32 overflow-hidden bg-background">
+    <section
+      ref={sectionRef}
+      id="media"
+      dir="rtl"
+      className="relative scroll-mt-28 w-full py-24 md:py-32 overflow-hidden bg-background"
+    >
       {/* Ambient Glow */}
       <div className="absolute top-1/2 left-0 w-[40rem] h-[40rem] bg-[#f0c246]/5 blur-[120px] rounded-full mix-blend-screen -z-10 pointer-events-none translate-y-[-50%] -translate-x-1/2" />
 
