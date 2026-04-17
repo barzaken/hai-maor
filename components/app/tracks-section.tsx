@@ -1,11 +1,14 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import { ArrowLeftIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 
+const AUTO_ADVANCE_MS = 5000;
+
 const trackImageTone =
-	"object-cover grayscale hover:grayscale-0 transition-all duration-700 ease-out";
+	"object-cover transition-all duration-700 ease-out";
 
 const tracks = [
 	{
@@ -18,14 +21,12 @@ const tracks = [
 		title: "סדנת פרקטיקום לצוותים",
 		description: "4-5 שעות ממוקדות לקבוצות קטנות (עד 30 איש) עם דגש על תרגול מעשי מול מצלמה.",
 		featured: false,
-		// images: ["/img/tracks/teams.jpeg", "/img/tracks/teams2.jpeg"],
 		images: ["/img/tracks/teams.jpeg"],
 	},
 	{
 		title: "הרצאה חווייתית",
 		description: "שעה וחצי של שבירת מיתוסים, הומור וכלים למחשבה מחוץ לקופסה עבור קהלים גדולים.",
 		featured: false,
-		// images: ["/img/tracks/lecture.jpeg", "/img/tracks/lecture2.jpeg"],
 		images: ["/img/tracks/lecture.jpeg"],
 	},
 	{
@@ -38,9 +39,22 @@ const tracks = [
 ];
 
 export function TracksSection() {
+	const [expandedIndex, setExpandedIndex] = useState(0);
+
+	useEffect(() => {
+		const id = window.setInterval(() => {
+			setExpandedIndex((i) => (i + 1) % tracks.length);
+		}, AUTO_ADVANCE_MS);
+		return () => window.clearInterval(id);
+	}, [expandedIndex]);
+
+	const selectTrack = (index: number) => {
+		setExpandedIndex(index);
+	};
+
 	return (
 		<section className="relative py-20 md:py-28 w-full overflow-hidden" dir="rtl">
-			<div className="container mx-auto px-4 max-w-6xl">
+			<div className="mx-auto w-full max-w-7xl px-4 sm:px-6">
 				<div className="text-center max-w-2xl mx-auto mb-12 md:mb-20">
 					<motion.h2
 						initial={{ opacity: 0, y: 20 }}
@@ -63,109 +77,138 @@ export function TracksSection() {
 				</div>
 
 				<motion.div
-					initial="hidden"
-					whileInView="show"
+					initial={{ opacity: 0, y: 24 }}
+					whileInView={{ opacity: 1, y: 0 }}
 					viewport={{ once: true }}
-					variants={{
-						hidden: {},
-						show: {
-							transition: { staggerChildren: 0.1 },
-						},
-					}}
-					className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+					transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+					className="relative w-full min-w-0"
 				>
-					{tracks.map((track, i) => (
-						<motion.div
-							key={i}
-							variants={{
-								hidden: { opacity: 0, y: 20 },
-								show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100, damping: 20 } },
-							}}
-							whileHover={{ y: -8 }}
-							className={cn(
-								"group relative h-[420px] p-8 rounded-3xl border flex flex-col justify-end overflow-hidden transition-all duration-500",
-								track.featured
-									? "border-white/20 shadow-[0_0_40px_rgba(255,255,255,0.05)]"
-									: "border-border shadow-sm hover:border-white/20"
-							)}
-						>
-							{/* Background image(s) + overlay — B&W matches parallax-features parallaxContent */}
-							{track.images.length > 0 && (
-								<div className="absolute inset-0 z-0">
-									{track.images.length === 1 ? (
-										<img
-											src={track.images[0]}
-											alt={track.title}
-											className={cn(
-												"w-full h-full transition-transform duration-700 group-hover:scale-110",
-												trackImageTone
-											)}
-											loading="lazy"
-											decoding="async"
-										/>
-									) : (
-										<div className="absolute inset-0 grid grid-cols-2 gap-2 md:gap-3 p-2 md:p-3">
-											{track.images.map((src, imgIndex) => (
-												<div
-													key={src}
-													className="relative min-h-0 h-full rounded-xl overflow-hidden shadow-inner"
-												>
-													<img
-														src={src}
-														alt={`${track.title} — ${imgIndex + 1}`}
-														className={cn(
-															"absolute inset-0 w-full h-full transition-transform duration-700 group-hover:scale-110",
-															trackImageTone
-														)}
-														loading="lazy"
-														decoding="async"
-													/>
+					<div className="flex w-full min-w-0 items-stretch gap-1">
+						{tracks.map((track, i) => {
+							const isExpanded = i === expandedIndex;
+							return (
+								<div
+									key={i}
+									role="button"
+									tabIndex={0}
+									aria-expanded={isExpanded}
+									aria-label={track.title}
+									onClick={() => selectTrack(i)}
+									onKeyDown={(e) => {
+										if (e.key === "Enter" || e.key === " ") {
+											e.preventDefault();
+											selectTrack(i);
+										}
+									}}
+									className={cn(
+										"group relative min-w-0 basis-0 cursor-pointer overflow-hidden rounded-3xl outline-none",
+										"transition-all duration-500 ease-in-out",
+										"focus-visible:ring-2 focus-visible:ring-[#f0c246] focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+										track.featured && isExpanded
+											? "shadow-[0_0_40px_rgba(255,255,255,0.06)]"
+											: "shadow-sm"
+									)}
+									style={{
+										flexGrow: isExpanded ? 24 : 5,
+										flexShrink: 1,
+										flexBasis: 0,
+										height: "24rem",
+									}}
+								>
+									{track.images.length > 0 && (
+										<div className="absolute inset-0 z-0">
+											{isExpanded && track.images.length > 1 ? (
+												<div className="absolute inset-0 grid grid-cols-2 gap-2 md:gap-3 p-2 md:p-3">
+													{track.images.map((src, imgIndex) => (
+														<div
+															key={src}
+															className="relative min-h-0 h-full rounded-xl overflow-hidden shadow-inner"
+														>
+															<img
+																src={src}
+																alt={`${track.title} — ${imgIndex + 1}`}
+																className={cn(
+																	"absolute inset-0 w-full h-full transition-transform duration-700 group-hover:scale-105",
+																	trackImageTone,
+																	isExpanded ? "grayscale-0" : "grayscale"
+																)}
+																loading="lazy"
+																decoding="async"
+															/>
+														</div>
+													))}
 												</div>
-											))}
+											) : (
+												<img
+													src={track.images[0]}
+													alt={track.title}
+													className={cn(
+														"w-full h-full transition-transform duration-700 group-hover:scale-105",
+														trackImageTone,
+														isExpanded ? "grayscale-0" : "grayscale"
+													)}
+													loading="lazy"
+													decoding="async"
+												/>
+											)}
+											<div
+												className={cn(
+													"absolute inset-0 bg-gradient-to-t from-background via-background/75 to-background/15 pointer-events-none transition-opacity duration-500",
+													isExpanded ? "opacity-100" : "opacity-90",
+													track.featured && isExpanded && "from-black via-black/55 to-transparent"
+												)}
+											/>
 										</div>
 									)}
+
+									{track.featured && isExpanded && (
+										<div className="absolute inset-0 bg-gradient-to-br from-[#f0c246]/10 to-transparent opacity-50 pointer-events-none z-[1]" />
+									)}
+
 									<div
 										className={cn(
-											"absolute inset-0 bg-gradient-to-t from-background via-background/80 to-background/20 pointer-events-none",
-											track.featured && "from-black via-black/60 to-transparent"
+											"relative z-10 flex h-full flex-col justify-end p-5 md:p-6 transition-opacity duration-500",
+											isExpanded ? "opacity-100" : "opacity-0 pointer-events-none"
 										)}
-									/>
+										aria-hidden={!isExpanded}
+									>
+										<h3
+											className={cn(
+												"text-xl font-semibold mb-0.5 md:text-2xl",
+												track.featured ? "text-white" : "text-foreground"
+											)}
+										>
+											{track.title}
+										</h3>
+										{track.subtitle && (
+											<p className="text-xs font-medium text-[#f0c246] mb-2 md:text-sm">{track.subtitle}</p>
+										)}
+										<p
+											className={cn(
+												"text-xs leading-relaxed line-clamp-4 md:text-sm",
+												track.featured ? "text-gray-300" : "text-gray-400"
+											)}
+										>
+											{track.description}
+										</p>
+										<button
+											type="button"
+											className={cn(
+												"mt-4 inline-flex items-center gap-2 text-xs font-medium transition-colors w-fit md:text-sm",
+												track.featured
+													? "text-[#f0c246] hover:text-emerald-300"
+													: "text-foreground hover:text-gray-300"
+											)}
+											onClick={(e) => e.stopPropagation()}
+										>
+											לפרטים נוספים
+											<ArrowLeftIcon className="w-3.5 h-3.5 md:w-4 md:h-4 group-hover:-translate-x-1 transition-transform" />
+										</button>
+									</div>
 								</div>
-							)}
-
-							{/* Soft Glow on Featured */}
-							{track.featured && (
-								<div className="absolute inset-0 bg-gradient-to-br from-[#f0c246]/10 to-transparent opacity-50 pointer-events-none z-1" />
-							)}
-
-							<div className="relative z-10">
-								<h3 className={cn(
-									"text-2xl font-semibold mb-1",
-									track.featured ? "text-white" : "text-foreground"
-								)}>
-									{track.title}
-								</h3>
-								{track.subtitle && (
-									<p className="text-sm font-medium text-[#f0c246] mb-4">{track.subtitle}</p>
-								)}
-								<p className={cn(
-									"text-sm leading-relaxed mt-4 line-clamp-3 transition-opacity duration-300",
-									track.featured ? "text-gray-300" : "text-gray-400",
-									"group-hover:opacity-100"
-								)}>
-									{track.description}
-								</p>
-
-								<button className={cn(
-									"mt-8 inline-flex items-center gap-2 text-sm font-medium transition-colors w-fit",
-									track.featured ? "text-[#f0c246] hover:text-emerald-300" : "text-foreground hover:text-gray-300"
-								)}>
-									לפרטים נוספים
-									<ArrowLeftIcon className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-								</button>
-							</div>
-						</motion.div>
-					))}
+							);
+						})}
+					</div>
 				</motion.div>
 			</div>
 		</section>
