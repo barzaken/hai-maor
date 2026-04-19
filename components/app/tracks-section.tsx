@@ -15,7 +15,7 @@ const tracks = [
 		title: "מפגשים אישיים (VIP)",
 		description: "ליווי אישי מ-A ל-B, כולל צילום וידאו לשיפור תוצאות בלייב ומבחן התוצאה.",
 		featured: true,
-		images: ["/img/tracks/personal.jpeg"],
+		images: ["/img/tracks/personal2.jpg"],
 	},
 	{
 		title: "סדנת פרקטיקום לצוותים",
