@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/api/'],
     },
-    sitemap: `${process.env.NEXT_PUBLIC_SITE_URL ?? 'https://haimaor.co.il'}/sitemap.xml`,
+    sitemap: `${process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.haimaor.co.il'}/sitemap.xml`,
   };
 }

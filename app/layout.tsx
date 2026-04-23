@@ -2,7 +2,12 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/next";
+
+const siteBase =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.haimaor.co.il";
+const defaultOgImage =
+  "https://www.haimaor.co.il/img/hai-maor-speaks-2.jpeg";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,7 +20,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://haimaor.co.il"),
+  metadataBase: new URL(siteBase),
   title: {
     default: "חי מאור - במה עסקית",
     template: "%s | חי מאור - במה עסקית",
@@ -42,7 +47,7 @@ export const metadata: Metadata = {
     siteName: "חי מאור - במה עסקית",
     images: [
       {
-        url: "/img/hai-maor-speaks-2.jpeg",
+        url: defaultOgImage,
         width: 1200,
         height: 630,
         alt: "חי מאור - במה עסקית",
@@ -54,12 +59,9 @@ export const metadata: Metadata = {
     title: "חי מאור - במה עסקית",
     description:
       "ליווי אישי וסדנאות לעמידה מול קהל ומצלמה, פרזנטציה עסקית והנעה לפעולה.",
-    images: ["/img/hai-maor-speaks-2.jpeg"],
+    images: [defaultOgImage],
   },
   category: "business",
-  alternates: {
-    canonical: "/",
-  },
   manifest: "/manifest.json",
   appleWebApp: {
     title: "חי מאור - במה עסקית",
@@ -79,9 +81,9 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   "name": "חי מאור - במה עסקית",
-  "image": "https://haimaor.co.il/img/hai-maor-speaks-2.jpeg",
-  "@id": "https://haimaor.co.il",
-  "url": "https://haimaor.co.il",
+  "image": "https://www.haimaor.co.il/img/hai-maor-speaks-2.jpeg",
+  "@id": "https://www.haimaor.co.il",
+  "url": "https://www.haimaor.co.il",
   "telephone": "+972-50-0000000",
   "address": {
     "@type": "PostalAddress",
