@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     siteName: "חי מאור - במה עסקית",
     images: [
       {
-        url: "/img/hai-maor-speaks.jpg",
+        url: "/img/hai-maor-speaks-2.jpeg",
         width: 1200,
         height: 630,
         alt: "חי מאור - במה עסקית",
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     title: "חי מאור - במה עסקית",
     description:
       "ליווי אישי וסדנאות לעמידה מול קהל ומצלמה, פרזנטציה עסקית והנעה לפעולה.",
-    images: ["/img/hai-maor-speaks.jpg"],
+    images: ["/img/hai-maor-speaks-2.jpeg"],
   },
   category: "business",
   alternates: {
@@ -79,7 +79,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   "name": "חי מאור - במה עסקית",
-  "image": "https://haimaor.co.il/img/hai-maor-speaks.jpg",
+  "image": "https://haimaor.co.il/img/hai-maor-speaks-2.jpeg",
   "@id": "https://haimaor.co.il",
   "url": "https://haimaor.co.il",
   "telephone": "+972-50-0000000",
