@@ -1,5 +1,24 @@
 import Link from 'next/link';
+import { Facebook, Instagram, Youtube } from 'lucide-react';
 import { Logo } from '@/components/app/logo';
+
+const socialLinks = [
+  {
+    href: 'https://www.youtube.com/channel/UCR9XY7Lzx3xfzoNJpNcRdQQ',
+    label: 'עמוד היוטיוב של חי מאור',
+    Icon: Youtube,
+  },
+  {
+    href: 'https://www.facebook.com/hai.maor/',
+    label: 'עמוד הפייסבוק של חי מאור',
+    Icon: Facebook,
+  },
+  {
+    href: 'https://www.instagram.com/hai_maor/',
+    label: 'עמוד האינסטגרם של חי מאור',
+    Icon: Instagram,
+  },
+] as const;
 
 export function FooterSection() {
   return (
@@ -13,7 +32,7 @@ export function FooterSection() {
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-6">
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-4">
             <Link href="#home" className="text-sm font-medium text-gray-400 hover:text-[#f0c246] transition-colors">
               דף הבית
             </Link>
@@ -23,12 +42,21 @@ export function FooterSection() {
             <Link href="#contact" className="text-sm font-medium text-gray-400 hover:text-[#f0c246] transition-colors">
               יצירת קשר
             </Link>
-            <a href="https://instagram.com" target="_blank" rel="noreferrer" className="text-sm font-medium text-gray-400 hover:text-[#f0c246] transition-colors">
-              אינסטגרם
-            </a>
-            <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="text-sm font-medium text-gray-400 hover:text-[#f0c246] transition-colors">
-              לינקדאין
-            </a>
+            <span className="hidden sm:block h-6 w-px shrink-0 bg-white/10" aria-hidden />
+            <div className="flex items-center gap-2">
+              {socialLinks.map(({ href, label, Icon }) => (
+                <a
+                  key={href}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-gray-400 transition-colors hover:border-[#f0c246]/40 hover:bg-[#f0c246]/10 hover:text-[#f0c246]"
+                >
+                  <Icon className="h-5 w-5" strokeWidth={1.75} aria-hidden />
+                </a>
+              ))}
+            </div>
           </div>
         </div>
 

@@ -22,15 +22,17 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(siteBase),
   title: {
-    default: "חי מאור - במה עסקית",
-    template: "%s | חי מאור - במה עסקית",
+    default: "חי מאור – במה עסקית | ליווי וסדנאות לעמידה מול קהל ומצלמה",
+    template: "%s | חי מאור – במה עסקית",
   },
   description:
-    "במה עסקית עם חי מאור: ליווי אישי וסדנאות למנהלים, יזמים וצוותים לעמידה מול קהל ומצלמה, פרזנטציה עסקית מדויקת, סטוריטלינג והשפעה שמניעה לפעולה.",
-  applicationName: "חי מאור - במה עסקית",
+    "חי מאור – במה עסקית: ליווי אישי וסדנאות למנהלים, יזמים וצוותים לעמידה מול קהל ומצלמה, פרזנטציה עסקית מדויקת, סטוריטלינג והשפעה שמניעה לפעולה.",
+  applicationName: "חי מאור – במה עסקית",
   keywords: [
     "חי מאור",
+    "חי מאור במה עסקית",
     "במה עסקית",
+    "חי מאור- במה עסקית",
     "עמידה מול קהל",
     "עמידה מול מצלמה",
     "פרזנטציה עסקית",
@@ -38,33 +40,38 @@ export const metadata: Metadata = {
     "ליווי למנהלים",
     "סדנאות לארגונים",
   ],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true },
+  },
   openGraph: {
-    title: "חי מאור - במה עסקית",
+    title: "חי מאור – במה עסקית | ליווי וסדנאות לעמידה מול קהל",
     description:
-      "ליווי אישי וסדנאות למנהלים, יזמים וצוותים לעמידה מול קהל ומצלמה, חיזוק נוכחות, ביטחון והשפעה בהופעה עסקית.",
+      "חי מאור – במה עסקית: ליווי אישי וסדנאות למנהלים, יזמים וצוותים לעמידה מול קהל ומצלמה, חיזוק נוכחות, ביטחון והשפעה בהופעה עסקית.",
     locale: "he_IL",
     type: "website",
-    siteName: "חי מאור - במה עסקית",
+    siteName: "חי מאור – במה עסקית",
     images: [
       {
         url: defaultOgImage,
         width: 1200,
         height: 630,
-        alt: "חי מאור - במה עסקית",
+        alt: "חי מאור – במה עסקית, מומחה לעמידה מול קהל ופרזנטציה עסקית",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "חי מאור - במה עסקית",
+    title: "חי מאור – במה עסקית",
     description:
-      "ליווי אישי וסדנאות לעמידה מול קהל ומצלמה, פרזנטציה עסקית והנעה לפעולה.",
+      "חי מאור – במה עסקית: ליווי וסדנאות לעמידה מול קהל ומצלמה, פרזנטציה עסקית והנעה לפעולה.",
     images: [defaultOgImage],
   },
   category: "business",
   manifest: "/manifest.json",
   appleWebApp: {
-    title: "חי מאור - במה עסקית",
+    title: "חי מאור – במה עסקית",
   },
   icons: {
     icon: [
@@ -79,38 +86,51 @@ export const metadata: Metadata = {
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "חי מאור - במה עסקית",
-  "image": "https://www.haimaor.co.il/img/hai-maor-speaks-2.jpeg",
-  "@id": "https://www.haimaor.co.il",
-  "url": "https://www.haimaor.co.il",
-  "telephone": "+972-50-0000000",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Israel",
-    "addressCountry": "IL"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 32.0853,
-    "longitude": 34.7818
-  },
-  "openingHoursSpecification": {
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": [
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Sunday"
-    ],
-    "opens": "09:00",
-    "closes": "18:00"
-  },
-  "sameAs": [
-    "https://www.facebook.com/haimaor",
-    "https://www.linkedin.com/in/haimaor"
-  ]
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": `${siteBase}/#website`,
+      url: siteBase,
+      name: "חי מאור – במה עסקית",
+      alternateName: ["חי מאור", "במה עסקית", "חי מאור במה עסקית"],
+      inLanguage: "he-IL",
+      publisher: { "@id": `${siteBase}/#business` },
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": `${siteBase}/#business`,
+      name: "חי מאור – במה עסקית",
+      alternateName: ["חי מאור", "במה עסקית"],
+      image: `${siteBase}/img/hai-maor-speaks-2.jpeg`,
+      url: siteBase,
+      description:
+        "ליווי אישי וסדנאות למנהלים, יזמים וצוותים לעמידה מול קהל ומצלמה, פרזנטציה עסקית וסטוריטלינג.",
+      address: {
+        "@type": "PostalAddress",
+        addressCountry: "IL",
+      },
+      areaServed: { "@type": "Country", name: "Israel" },
+      sameAs: [
+        "https://www.youtube.com/channel/UCR9XY7Lzx3xfzoNJpNcRdQQ",
+        "https://www.facebook.com/hai.maor/",
+        "https://www.instagram.com/hai_maor/",
+      ],
+    },
+    {
+      "@type": "Person",
+      "@id": `${siteBase}/#person`,
+      name: "חי מאור",
+      url: siteBase,
+      image: `${siteBase}/img/hero-nobg.png`,
+      jobTitle: "מאמן ומלווה לעמידה מול קהל ופרזנטציה עסקית",
+      worksFor: { "@id": `${siteBase}/#business` },
+      sameAs: [
+        "https://www.youtube.com/channel/UCR9XY7Lzx3xfzoNJpNcRdQQ",
+        "https://www.facebook.com/hai.maor/",
+        "https://www.instagram.com/hai_maor/",
+      ],
+    },
+  ],
 };
 
 export default function RootLayout({

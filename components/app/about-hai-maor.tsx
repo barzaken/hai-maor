@@ -55,7 +55,7 @@ export function AboutMeSection() {
 							}}
 							className="text-3xl md:text-5xl font-semibold tracking-tight text-foreground mb-6"
 						>
-							המומחיות שלי – <span className="text-foreground/50">הביטחון שלכם.</span>
+							חי מאור – במה עסקית: המומחיות שלי, <span className="text-foreground/50">הביטחון שלכם.</span>
 						</motion.h2>
 
 						<motion.div

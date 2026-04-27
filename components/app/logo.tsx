@@ -16,7 +16,7 @@ type LogoProps = {
   alt?: string;
 };
 
-export function Logo({ className, alt = 'לוגו חי מאור' }: LogoProps) {
+export function Logo({ className, alt = "חי מאור – במה עסקית" }: LogoProps) {
   return (
     <Image width={100} src={haiLogo} unoptimized alt={alt} />
   )

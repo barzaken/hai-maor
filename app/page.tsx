@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils";
+import type { Metadata } from "next";
 import { Header } from "@/components/app/header";
 import { HeroSection } from "@/components/app/hero";
 import { LogosSection } from "@/components/app/logos-section";
@@ -17,6 +17,17 @@ import { ParallaxFeaturesSection } from "@/components/app/parallax-features";
 import { LeadershipSection } from "@/components/app/leadership-section";
 import { SalesPitchSection } from "@/components/app/sales-pitch-section";
 
+const siteBase =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.haimaor.co.il";
+
+export const metadata: Metadata = {
+  title: "חי מאור – במה עסקית | ליווי וסדנאות לעמידה מול קהל ומצלמה",
+  description:
+    "חי מאור – במה עסקית: ליווי אישי וסדנאות למנהלים, יזמים וצוותים לעמידה מול קהל ומצלמה, פרזנטציה עסקית, סטוריטלינג והשפעה שמניעה לפעולה.",
+  alternates: {
+    canonical: siteBase,
+  },
+};
 
 export default function Home() {
   return (
